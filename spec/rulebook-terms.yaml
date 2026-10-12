@@ -1,0 +1,410 @@
+# Plain-language explanations of the terms used in the Rulebook consultation draft v0.2.
+# Used by the interactive version (scripts/export_rulebook.py). Each entry:
+#   match: phrases linked on first use in each rule (case-sensitive, longest first)
+#   short: one-sentence definition
+#   why:   why it matters, for a reader new to the topic
+#   rule:  where the Rulebook defines or uses it
+#   visual: optional key of an explainer drawn on the web page
+terms:
+  - id: sdc
+    label: Space Debris Credit (SDC)
+    match: ["Space Debris Credit", "SDC unit", "SDC units", "SDCs", "SDC"]
+    short: A unit that records a verified reduction in long-lived debris risk, measured against a baseline.
+    why: It gives a common way to count, and pay for, actions that make orbit safer, such as removing a dead rocket stage. A unit only exists after independent verification, and none has been issued yet.
+    rule: C1
+    visual: units
+
+  - id: sder
+    label: Space Debris Exposure Rating (SDER)
+    match: ["Space Debris Exposure Rating", "SDER assessment", "SDER"]
+    short: A mission-level description of how much long-lived debris risk a mission creates, with its uncertainty.
+    why: Today it is hard to compare missions. A published rating with honest uncertainty lets regulators, insurers and buyers see which missions plan their disposal well.
+    rule: B1
+    visual: rating
+
+  - id: risk-proxy
+    label: Risk proxy R = M × L × Pc
+    match: ["risk proxy", "Risk proxy"]
+    short: Mass times persistence times collision probability, a simple measure of how much debris an object could create.
+    why: Heavy objects that stay up for decades in crowded orbits can break into thousands of fragments if hit. The product of the three terms ranks them. It is a proxy, not the probability of a disaster.
+    rule: A2
+    visual: risk
+
+  - id: persistence
+    label: Persistence (L)
+    match: ["persistence"]
+    short: The share of the horizon an object is expected to stay in orbit before atmospheric drag brings it down.
+    why: Below about 500 km, drag clears objects within years. Higher up, they can stay for centuries, so the same object is far more dangerous there.
+    rule: A2
+    visual: risk
+
+  - id: pc
+    label: Collision probability (Pc)
+    match: ["collision probability"]
+    short: The chance that an object is hit by another catalogued object over the horizon.
+    why: It depends on how crowded the object's altitude is, how fast objects meet (around 10 km/s in low orbit) and how large the object is.
+    rule: A2
+    visual: risk
+
+  - id: horizon
+    label: Horizon (H)
+    match: ["horizon"]
+    short: The period over which persistence and collision probability are assessed; 25 years by default.
+    why: A longer horizon gives more weight to objects that stay up for a long time. The choice changes rankings, so it is published.
+    rule: A2
+
+  - id: delta-r
+    label: ΔR (risk reduction)
+    match: ["ΔR"]
+    short: How much an action lowers the risk proxy, summed over the objects it affects.
+    why: It is what a credit measures. Removing a 9-tonne stage from a crowded orbit can be worth hundreds of times more ΔR than removing a small satellite that would soon fall anyway.
+    rule: A2
+    visual: units
+
+  - id: delta-r0
+    label: Reference unit ΔR₀
+    match: ["reference unit", "Reference unit"]
+    short: The amount of ΔR that one SDC unit represents.
+    why: Fixing it makes units comparable. How to set it is one of the main open questions in the consultation.
+    rule: C1
+    visual: units
+
+  - id: conservative-bound
+    label: Conservative bound
+    match: ["conservative bound"]
+    short: The lowest risk reduction consistent with the evidence.
+    why: Units are counted from this low end and rounded down, so uncertainty can only reduce what is issued, never inflate it.
+    rule: C1
+    visual: units
+
+  - id: baseline
+    label: Baseline
+    match: ["baselines", "baseline", "Baselines", "Baseline"]
+    short: What would likely have happened without the action, including everything the law already requires.
+    why: Paying people for what they must do anyway adds nothing. Only performance beyond the baseline earns units, which is called additionality.
+    rule: C3
+    visual: baseline
+
+  - id: additionality
+    label: Additionality
+    match: ["beyond the baseline", "beyond the applicable requirement"]
+    short: The part of an outcome that would not have happened without the action.
+    why: It is the test that stops credits being paid for business as usual, a known weakness of some carbon-credit schemes.
+    rule: C3
+    visual: baseline
+
+  - id: moral-hazard
+    label: Moral hazard
+    match: ["moral hazard", "Moral-hazard"]
+    short: The risk that a reward for cleaning up encourages people to create the mess in the first place.
+    why: If you could earn credits for deorbiting your own satellites, you might launch satellites just to deorbit them. Waiting periods and legacy-only rules prevent this.
+    rule: C4
+
+  - id: legacy-object
+    label: Legacy object
+    match: ["legacy objects", "legacy object", "Legacy object", "legacy debris"]
+    short: An object launched before the scheme started, or one whose operator no longer exists or controls it.
+    why: Most of the risk sits in old rocket stages and dead satellites that nobody is paying to remove. They are the main target for removal credits.
+    rule: A2
+
+  - id: evidence-class
+    label: Evidence class
+    match: ["evidence classes", "evidence class", "Evidence class"]
+    short: How strong a piece of evidence is, from verified data down to an operator's own statement.
+    why: A rating built on weak evidence gets a wider uncertainty range, so it cannot look better than it is.
+    rule: B3
+    visual: rating
+
+  - id: withheld
+    label: Indicative, provisional, withheld
+    match: ["withheld", "provisional", "indicative"]
+    short: The three statuses of an SDER result, depending on how much input is missing.
+    why: Missing inputs are scored at their worst case. If too much is missing, no rating is published at all.
+    rule: B4
+    visual: rating
+
+  - id: band
+    label: Band
+    match: ["band certainty", "bands", "band"]
+    short: Low, medium or high exposure, reported with whether the whole uncertainty interval falls inside the band.
+    why: A score near a boundary could belong to either band. Saying so prevents false precision.
+    rule: B5
+    visual: rating
+
+  - id: method-version
+    label: Method version
+    match: ["method versions", "method version", "versioned method file"]
+    short: A published file of weights, tables and thresholds, identified by a fingerprint (SHA-256).
+    why: Anyone can recompute a rating, and a later change of method never silently changes an old result.
+    rule: B6
+
+  - id: claim
+    label: Claim
+    match: ["claims", "claim"]
+    short: A request to record an outcome as SDC units, with its baseline and evidence.
+    why: Claims move through a fixed lifecycle, and each step is recorded so it can be checked or reversed.
+    rule: C7
+    visual: lifecycle
+
+  - id: retirement
+    label: Retirement
+    match: ["retirement", "retired", "Retirement"]
+    short: The one-way use of a unit for an obligation or a public claim.
+    why: Once retired, a unit cannot be used again. This is what stops the same clean-up being counted twice.
+    rule: C9
+    visual: lifecycle
+
+  - id: revocation
+    label: Revocation
+    match: ["revoked", "revocation", "revoke"]
+    short: Cancelling a recorded unit because the outcome proved false, with a published reason.
+    why: If an object reported as reentered is spotted again by radar, its units are revoked, even after retirement.
+    rule: C10
+    visual: lifecycle
+
+  - id: double-counting
+    label: Double counting
+    match: ["double counting", "uniqueness"]
+    short: Counting one physical outcome more than once, for example by two claimants or in two schemes.
+    why: It would create units with nothing behind them. The registry allows one claim per object and outcome type.
+    rule: C8
+    visual: registry
+
+  - id: verifier
+    label: Verifier
+    match: ["verifiers", "verifier", "Verifiers", "Verifier"]
+    short: An accredited body, independent of the claimant, that checks the evidence for an outcome.
+    why: Verifiers are paid by participants, so they are rotated, sampled and re-audited to keep them honest.
+    rule: D1
+    visual: verification
+
+  - id: data-provider
+    label: Data provider
+    match: ["data providers", "data provider"]
+    short: A source of tracking, catalogue or telemetry data, such as a national radar network or a commercial tracker.
+    why: Outcomes are confirmed by at least two independent sources wherever possible.
+    rule: D2
+    visual: verification
+
+  - id: registry
+    label: Registry
+    match: ["registry", "Registry"]
+    short: The public record of every claim, verification, issuance, retirement and revocation.
+    why: Each entry carries the fingerprint of the one before, so any later edit to history is visible.
+    rule: E1
+    visual: registry
+
+  - id: hash-chain
+    label: Hash chain
+    match: ["append-only log", "head hash", "hash chain"]
+    short: A log in which each entry includes a cryptographic fingerprint of the previous entry.
+    why: Changing any past entry breaks every fingerprint after it, so tampering is evident without a blockchain.
+    rule: E2
+    visual: registry
+
+  - id: administrator
+    label: Administrator
+    match: ["administrator", "Administrator"]
+    short: The body that keeps the rules and the registry, accredits verifiers and publishes reports.
+    why: It records and verifies but cannot fine anyone. Enforcement stays with States.
+    rule: G4
+
+  - id: review-group
+    label: Review group
+    match: ["review group", "Review group"]
+    short: Independent experts from operators, insurers, regulators and research who challenge the method.
+    why: Its voting rules stop any one kind of participant from controlling how risk is measured.
+    rule: G2
+
+  - id: originator
+    label: Originator
+    match: ["originator"]
+    short: The person who first proposed the SDC and SDER ideas, and any organisation linked to them.
+    why: The originator cannot rate their own missions, chair the review group permanently, sit on the ESAF board or veto a method.
+    rule: G3
+
+  - id: esaf
+    label: Equitable Space Access Fund (ESAF)
+    match: ["Equitable Space Access Fund", "ESAF board", "ESAF"]
+    short: A fund that receives a share of any money the scheme raises and supports countries and organisations with fewer resources.
+    why: Debris rules could otherwise shut out new space nations. The fund pays for tracking access, training, deorbit devices and help with compliance costs.
+    rule: H1
+    visual: esaf
+
+  - id: emerging-actor
+    label: Emerging space actor
+    match: ["emerging space actors", "emerging space actor", "Emerging space actor"]
+    short: A State without an established space agency or launch capability, an organisation in such a State, or a first-time operator.
+    why: At least half of the fund's money each year must go to them.
+    rule: A2
+    visual: esaf
+
+  - id: share-of-proceeds
+    label: Share of proceeds
+    match: ["share of proceeds", "share-of-proceeds"]
+    short: A fixed percentage of units or revenue set aside for a public purpose.
+    why: Climate finance already works this way. The Adaptation Fund received 2% of credits issued under the Clean Development Mechanism.
+    rule: H2
+    visual: esaf
+
+  - id: obligation
+    label: Obligation
+    match: ["obligations", "obligation"]
+    short: A requirement to disclose a rating or to retire units, set by a licensing authority or accepted voluntarily.
+    why: Without some obligation or buyer, nobody would need units. The Rulebook leaves the choice of instrument to each jurisdiction.
+    rule: F1
+
+  - id: quota
+    label: Quota
+    match: ["quotas", "quota"]
+    short: An obligation expressed as units to retire per period or per object launched.
+    why: A ceiling on total long-lived risk is one way to stop it growing. Only authorities with jurisdiction can set one.
+    rule: F3
+
+  - id: bonus-malus
+    label: Bonus–malus
+    match: ["Bonus–malus", "bonus–malus", "bonus credits"]
+    short: Lowering the obligation for low-exposure missions and raising it for high-exposure ones.
+    why: It rewards good mission design. A reduction applies only if the whole uncertainty interval sits in the low band.
+    rule: F4
+
+  - id: one-up-one-down
+    label: One-up, one-down
+    match: ["one-up, one-down"]
+    short: An ambition in which every new object is matched by a recorded reduction elsewhere.
+    why: It would stop the long-lived population from growing. The Rulebook treats it as one possible end point, not a premise.
+    rule: F3
+
+  - id: active-removal
+    label: Active debris removal (ADR)
+    match: ["active_removal", "active removal", "ADR"]
+    short: A spacecraft meets a dead object and takes it out of its orbit.
+    why: Demonstrations are under way, such as JAXA's ADRAS-J inspection of a Japanese rocket stage in 2024.
+    rule: C2
+
+  - id: passivation
+    label: Passivation
+    match: ["passivation"]
+    short: Emptying fuel tanks and discharging batteries at end of life so the object cannot explode.
+    why: Explosions of old stages and satellites have created a large share of today's fragments.
+    rule: C2
+
+  - id: controlled-reentry
+    label: Controlled reentry
+    match: ["controlled_reentry", "controlled reentry"]
+    short: Steering an object down so it burns up or falls into a remote ocean area at a planned time.
+    why: It removes the object from orbit at once and keeps falling debris away from people.
+    rule: C2
+
+  - id: trackability
+    label: Trackability
+    match: ["Trackability", "trackable", "tracked"]
+    short: Whether an object can be followed reliably by surveillance networks.
+    why: Objects above about 10 cm are tracked routinely in low orbit. Smaller ones cannot be verified yet, so actions on them do not earn units.
+    rule: C11
+
+  - id: consent
+    label: Consent of the State of registry
+    match: ["State of registry"]
+    short: The State that registered an object keeps jurisdiction and control over it, even when it is dead.
+    why: Nobody may remove another State's object without that State's permission. There is no salvage law in space.
+    rule: C6
+
+  - id: ost
+    label: Outer Space Treaty (1967)
+    match: ["Outer Space Treaty", "OST"]
+    short: The founding treaty of space law, ratified by over 110 States.
+    why: Article VI makes States responsible for their companies in space, VII makes them liable for damage, VIII keeps their ownership of objects, and IX requires due regard for others.
+    rule: A5
+    visual: law
+
+  - id: liability-convention
+    label: Liability Convention (1972)
+    match: ["Liability Convention"]
+    short: The treaty on damage caused by space objects.
+    why: Damage in orbit counts only if it is someone's fault, and leaving debris may not count as fault. That gap is why incentives are needed.
+    rule: A5
+    visual: law
+
+  - id: registration-convention
+    label: Registration Convention (1975)
+    match: ["Registration Convention"]
+    short: The treaty requiring States to register the objects they launch with the UN.
+    why: Registration gives each object an identity, which a credit needs so that it can be tied to one object only.
+    rule: A5
+    visual: law
+
+  - id: iadc
+    label: IADC guidelines
+    match: ["IADC"]
+    short: The debris mitigation guidelines of the Inter-Agency Space Debris Coordination Committee, revised in 2025.
+    why: They set the practices most national rules follow, such as disposing of satellites after their mission.
+    rule: A5
+    visual: law
+
+  - id: lts
+    label: LTS Guidelines
+    match: ["LTS Guidelines", "LTS"]
+    short: The UN's 21 voluntary guidelines for the long-term sustainability of outer space activities (2019).
+    why: They encourage data sharing and conjunction assessment, which the Rulebook's transparency rules build on.
+    rule: A5
+    visual: law
+
+  - id: copuos
+    label: COPUOS
+    match: ["COPUOS"]
+    short: The UN Committee on the Peaceful Uses of Outer Space, where States discuss space law and guidelines.
+    why: It is the natural forum to recognise a Rulebook like this one as a reference standard.
+    rule: G5
+
+  - id: fcc-rule
+    label: FCC five-year rule
+    match: ["FCC five-year", "FCC"]
+    short: A US rule requiring satellites in low orbit to be disposed of within five years of mission end, in force since September 2024.
+    why: It shows why baselines differ by country. A 25-year baseline would over-credit a US-licensed satellite.
+    rule: C3
+    visual: baseline
+
+  - id: eu-space-act
+    label: Proposed EU Space Act
+    match: ["EU Space Act"]
+    short: A European Commission proposal of June 2025 for safety, resilience and sustainability rules, proposed to apply from 2030.
+    why: It would require debris mitigation plans, including from non-EU operators serving the EU. It contains no credits and no removal obligation.
+    rule: A5
+    visual: law
+
+  - id: pca
+    label: PCA Optional Rules
+    match: ["PCA Optional Rules", "PCA"]
+    short: The Permanent Court of Arbitration's 2011 rules for disputes about outer space activities.
+    why: They give a ready-made procedure for the Rulebook's dispute panel.
+    rule: D4
+
+  - id: leo
+    label: Low Earth orbit (LEO)
+    match: ["LEO"]
+    short: Orbits up to 2,000 km altitude, where most satellites and most tracked debris are.
+    why: It is the most crowded region, and the one where removing a few large objects matters most.
+    rule: C11
+
+  - id: geo
+    label: Geostationary orbit (GEO)
+    match: ["GEO", "geostationary"]
+    short: The ring about 35,786 km above the equator where satellites match Earth's rotation.
+    why: Objects there never decay naturally, and smaller ones are hard to track from the ground.
+    rule: C11
+
+  - id: phase-gate
+    label: Evidence gate
+    match: ["evidence gates", "gates"]
+    short: A measurable condition that must be met before the scheme moves to its next phase.
+    why: The scheme grows only when it works, not because a calendar date has arrived.
+    rule: I1
+    visual: phases
+
+  - id: mutual-recognition
+    label: Mutual recognition
+    match: ["Mutual recognition", "mutual recognition"]
+    short: Jurisdictions accepting each other's units when they follow the same unit definition and a shared registry.
+    why: Without it, operators would face a different credit system in every country.
+    rule: I3

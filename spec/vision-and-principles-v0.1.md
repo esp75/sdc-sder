@@ -40,6 +40,7 @@ For example, a mission operator might document a disposal plan and later provide
 4. **No double counting.** Assign unique identifiers and states for claims, approvals, issuance, transfer if ever permitted, retirement and correction. Prevent multiple claims for one outcome and report reversals or invalidation.
 5. **Governance before markets.** Decide whether credits, deposits, bonds, fees, procurement criteria or producer-responsibility rules best serve the objective. Trading is one possible policy design; v0.1 does not assume it.
 6. **Equal access.** Publish eligibility and review rules that apply equally to every participant, including any organisation affiliated with the originator. No proprietary implementation should be required to take part in the public method.
+7. **Access for emerging space actors.** Debris rules must not become a barrier to entry. Any revenue the mechanism creates should fund a published share of support for States and organisations with fewer resources, governed separately from issuance. The Rulebook draft calls this the Equitable Space Access Fund.
 
 ## Governance proposed for the Institute
 

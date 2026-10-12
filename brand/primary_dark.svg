@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440">
+<rect width="1280" height="440" fill="#0A1628"></rect>
+<g transform="translate(90,100) scale(1.2)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M88.9 179.2 A80 80 0 1 1 163 149.3" stroke="#FFFFFF" stroke-width="9"></path>
+    <path d="M159.4 153.5 A80 80 0 0 1 102.8 179.95" stroke="#00D9A3" stroke-width="9"></path>
+    <circle cx="30.7" cy="60" r="9" fill="#0A1628" stroke="#FFFFFF" stroke-width="5"></circle>
+    <circle cx="156.6" cy="156.6" r="16" fill="#0A1628" stroke="#00D9A3" stroke-width="5"></circle>
+    <path d="M149.6 156.6 L154.6 161.6 L164.6 150.6" stroke="#00D9A3" stroke-width="5"></path>
+  </g><text x="390" y="252" font-family="Space Grotesk, &#39;DM Sans&#39;, system-ui, sans-serif" font-size="50" font-weight="600" letter-spacing="8.0" fill="#FFFFFF">SPACE DEBRIS CREDITS</text>
+</svg>

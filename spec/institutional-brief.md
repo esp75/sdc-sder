@@ -8,7 +8,7 @@
 
 **Issue.** A satellite or rocket stage can stay in orbit for decades or centuries after its mission ends. Evidence about how missions handle this is scattered, and assessment methods differ, so public authorities, insurers, researchers and purchasers cannot easily compare missions.
 
-**Proposal.** Develop two linked, independently governed instruments. The **Space Debris Exposure Rating (SDER)** would describe mission exposure and lifecycle responsibility under a transparent, tested method. A **Space Debris Credit (SDC)** could, if justified by research and governance, record independently verified cleanup or risk reduction. No rating or market operates. What exists today is a set of principles, a Rulebook consultation draft, four working papers and open reference code.
+**Proposal.** Develop two linked, independently governed instruments. The **Space Debris Exposure Rating (SDER)** would describe mission exposure and lifecycle responsibility under a transparent, tested method. A **Space Debris Credit (SDC)** could, if justified by research and governance, record independently verified cleanup or risk reduction. An **Equitable Space Access Fund** would use a share of any revenue to help emerging space actors take part. No rating or market operates. What exists today is a set of principles, a Rulebook consultation draft, four working papers and open reference code.
 
 **Why engage now.** Agencies and experts can still change the method before any score or unit carries weight: its boundaries, evidence rules, uncertainty, confidentiality, appeals and policy fit. The texts allow commercial reuse, so others can build competing implementations. Official assessments and marks would need separate, independent rules.
 

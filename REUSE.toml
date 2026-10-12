@@ -7,7 +7,7 @@ SPDX-FileCopyrightText = "2025-2026 Maxime Kadri"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = ["spec/vision-and-principles-v0.1.md", "spec/rulebook-v0.2-consultation-draft.md"]
+path = ["spec/vision-and-principles-v0.1.md", "spec/rulebook-v0.2-consultation-draft.md", "spec/rulebook-v0.2-consultation-draft.pdf", "spec/rulebook-terms.yaml"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 Maxime Kadri"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
@@ -19,7 +19,7 @@ SPDX-FileCopyrightText = "2026 Maxime Kadri and Anna Shishkina"
 SPDX-License-Identifier = "CC-BY-4.0"
 
 [[annotations]]
-path = ["spec/institutional-brief.md", "spec/consultation-template.md", "papers/*.md", "papers/*.bib", "papers/wp-*/**", "docs/**", "site/**", "README.md", "ORIGIN.md", "DISCLOSURES.md", "GOVERNANCE.md", "NOTICE", "LICENSING.md", "TRADEMARKS.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "CHANGELOG.md", "CITATION.cff", "REUSE.toml"]
+path = ["spec/institutional-brief.md", "spec/consultation-template.md", "papers/*.md", "papers/*.bib", "papers/wp-*/**", "docs/**", "site/**", "brand/**", "README.md", "ORIGIN.md", "DISCLOSURES.md", "GOVERNANCE.md", "NOTICE", "LICENSING.md", "TRADEMARKS.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "CHANGELOG.md", "CITATION.cff", "REUSE.toml"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 Maxime Kadri"
 SPDX-License-Identifier = "CC-BY-4.0"

@@ -11,6 +11,7 @@
 - **Examples:** 20 case studies of real objects in `examples/cases/`.
 - **Review:** all working papers are open for outside peer review, with an issue template.
 - **Rights:** both authors release the Strauss paper under CC BY 4.0, and the conference's rights policy allows this.
+- **Rulebook:** consultation draft v0.2 expanded from about 2,700 to about 8,000 words. It now carries over every policy provision of the 2025 drafts: definitions, legal framework, verification and audit, dispute tiers, bonus–malus and quota options, governance evolution, the Equitable Space Access Fund (Part H), phased adoption with evidence gates, national and international pathways, and outcome indicators. Published also as a branded PDF.
 - **Writing:** every document edited for plain, specific language.
 
 ## 0.1.0 (2026-10-12)
