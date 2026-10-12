@@ -1,0 +1,7 @@
+# Only operator statements, and key inputs missing. The engine must say so
+# instead of producing a precise-looking score.
+mission: {id: example-sparse, name: Example sparse disclosure}
+inputs:
+  mean_altitude_km: {value: 600, evidence: operator_statement}
+  disposal_plan: {value: reentry_within_25y, evidence: operator_statement}
+  passivation: {value: partial, evidence: operator_statement}

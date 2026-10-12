@@ -1,0 +1,11 @@
+# A 150 kg smallsat at 550 km with propulsion and a 5-year disposal plan.
+mission: {id: example-smallsat-550, name: Example smallsat, operator: example-operator}
+inputs:
+  mean_altitude_km: {value: 550, evidence: independently_observed, source: "public TLE catalogue"}
+  mass_kg: {value: 150, evidence: verified, source: "launch manifest"}
+  disposal_plan: {value: reentry_within_5y, evidence: operator_statement, source: "licence filing"}
+  disposal_reliability: {value: 0.95, evidence: modeled, source: "operator reliability analysis"}
+  passivation: {value: full, evidence: operator_statement}
+  maneuverability: {value: propulsive, evidence: independently_observed, source: "observed manoeuvres"}
+  min_miss_distance_km: {value: 12.0, evidence: independently_observed, source: "30-day screening"}
+  relative_speed_km_s: {value: 11.0, evidence: modeled}

@@ -1,0 +1,13 @@
+# Illustrative research input: placeholder values, not calibrated.
+# Active removal of one intact derelict upper stage from a long-lived,
+# collision-active shell (Kadri & Shishkina 2026, Table 1, ADR class).
+action_id: example-adr-01
+description: capture and controlled reentry of an intact upper stage at ~840 km
+horizon_years: 25
+changes:
+  - object_id: EXAMPLE-RB-1
+    before:
+      mass_kg: {value: 8900, low: 8500, high: 9000}
+      persistence: {value: 1.0, low: 0.95, high: 1.0}       # decades-to-centuries natural lifetime
+      collision_probability: {value: 0.01, low: 0.003, high: 0.03}
+    # 'after' omitted: object confirmed reentered, so R_after = 0

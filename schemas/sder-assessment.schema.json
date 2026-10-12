@@ -1,0 +1,183 @@
+{
+  "$defs": {
+    "Band": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "Band",
+      "type": "string"
+    },
+    "ComponentResult": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "weight": {
+          "title": "Weight",
+          "type": "number"
+        },
+        "risk": {
+          "description": "Component risk 0-100 (worst case if missing).",
+          "title": "Risk",
+          "type": "number"
+        },
+        "low": {
+          "title": "Low",
+          "type": "number"
+        },
+        "high": {
+          "title": "High",
+          "type": "number"
+        },
+        "contribution": {
+          "description": "weight * risk",
+          "title": "Contribution",
+          "type": "number"
+        },
+        "evidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EvidenceClass"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Weakest evidence among inputs; None if missing."
+        },
+        "missing_inputs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Inputs",
+          "type": "array"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "weight",
+        "risk",
+        "low",
+        "high",
+        "contribution",
+        "evidence",
+        "missing_inputs",
+        "rationale"
+      ],
+      "title": "ComponentResult",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "description": "How an input is known, from strongest to weakest (principle 2).",
+      "enum": [
+        "verified",
+        "independently_observed",
+        "modeled",
+        "operator_statement"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "Status": {
+      "description": "Result status per principle 4: say what is missing, never hide it.",
+      "enum": [
+        "indicative",
+        "provisional",
+        "withheld"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "description": "An illustrative SDER research assessment, not an official rating.",
+  "properties": {
+    "label": {
+      "default": "Illustrative research score - not an official SDER rating",
+      "title": "Label",
+      "type": "string"
+    },
+    "mission_id": {
+      "title": "Mission Id",
+      "type": "string"
+    },
+    "methodology_id": {
+      "title": "Methodology Id",
+      "type": "string"
+    },
+    "methodology_sha256": {
+      "title": "Methodology Sha256",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/Status"
+    },
+    "score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Conservative point estimate 0-100; None when withheld.",
+      "title": "Score"
+    },
+    "low": {
+      "title": "Low",
+      "type": "number"
+    },
+    "high": {
+      "title": "High",
+      "type": "number"
+    },
+    "band": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Band"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "band_is_certain": {
+      "description": "True if the whole interval falls within one band.",
+      "title": "Band Is Certain",
+      "type": "boolean"
+    },
+    "missing_weight": {
+      "title": "Missing Weight",
+      "type": "number"
+    },
+    "components": {
+      "items": {
+        "$ref": "#/$defs/ComponentResult"
+      },
+      "title": "Components",
+      "type": "array"
+    }
+  },
+  "required": [
+    "mission_id",
+    "methodology_id",
+    "methodology_sha256",
+    "status",
+    "score",
+    "low",
+    "high",
+    "band",
+    "band_is_certain",
+    "missing_weight",
+    "components"
+  ],
+  "title": "Assessment",
+  "type": "object"
+}

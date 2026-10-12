@@ -1,0 +1,16 @@
+# Illustrative research input: placeholder values, not calibrated.
+# Disposal well ahead of the applicable rule (Table 1, PMD class): the
+# baseline is natural decay; the action shortens residence in the shell.
+action_id: example-pmd-01
+description: propulsive deorbit of a 150 kg satellite from 550 km at end of mission
+horizon_years: 25
+changes:
+  - object_id: EXAMPLE-SAT-1
+    before:
+      mass_kg: 150
+      persistence: {value: 0.6, low: 0.4, high: 0.8}        # ~15 years natural decay over a 25-year horizon
+      collision_probability: {value: 0.002, low: 0.0005, high: 0.005}
+    after:
+      mass_kg: 150
+      persistence: {value: 0.04, low: 0.02, high: 0.08}     # residence of 1-2 years after disposal burn
+      collision_probability: {value: 0.0002, low: 0.0001, high: 0.0005}

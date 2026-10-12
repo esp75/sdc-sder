@@ -1,0 +1,345 @@
+{
+  "$defs": {
+    "DisposalPlan": {
+      "enum": [
+        "controlled_reentry",
+        "reentry_within_5y",
+        "reentry_within_25y",
+        "graveyard_orbit",
+        "none"
+      ],
+      "title": "DisposalPlan",
+      "type": "string"
+    },
+    "EvidenceClass": {
+      "description": "How an input is known, from strongest to weakest (principle 2).",
+      "enum": [
+        "verified",
+        "independently_observed",
+        "modeled",
+        "operator_statement"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "Evidenced_DisposalPlan_": {
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DisposalPlan"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "evidence": {
+          "$ref": "#/$defs/EvidenceClass",
+          "default": "operator_statement"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reference to the supporting record.",
+          "title": "Source"
+        }
+      },
+      "title": "Evidenced[DisposalPlan]",
+      "type": "object"
+    },
+    "Evidenced_Maneuverability_": {
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Maneuverability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "evidence": {
+          "$ref": "#/$defs/EvidenceClass",
+          "default": "operator_statement"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reference to the supporting record.",
+          "title": "Source"
+        }
+      },
+      "title": "Evidenced[Maneuverability]",
+      "type": "object"
+    },
+    "Evidenced_Passivation_": {
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Passivation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "evidence": {
+          "$ref": "#/$defs/EvidenceClass",
+          "default": "operator_statement"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reference to the supporting record.",
+          "title": "Source"
+        }
+      },
+      "title": "Evidenced[Passivation]",
+      "type": "object"
+    },
+    "Evidenced_float_": {
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "evidence": {
+          "$ref": "#/$defs/EvidenceClass",
+          "default": "operator_statement"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reference to the supporting record.",
+          "title": "Source"
+        }
+      },
+      "title": "Evidenced[float]",
+      "type": "object"
+    },
+    "Maneuverability": {
+      "enum": [
+        "propulsive",
+        "drag_device",
+        "none"
+      ],
+      "title": "Maneuverability",
+      "type": "string"
+    },
+    "MissionInputs": {
+      "description": "Everything the method may use. Any field may be missing.",
+      "properties": {
+        "mean_altitude_km": {
+          "$ref": "#/$defs/Evidenced_float_",
+          "default": {
+            "value": null,
+            "evidence": "operator_statement",
+            "source": null
+          }
+        },
+        "mass_kg": {
+          "$ref": "#/$defs/Evidenced_float_",
+          "default": {
+            "value": null,
+            "evidence": "operator_statement",
+            "source": null
+          }
+        },
+        "disposal_plan": {
+          "$ref": "#/$defs/Evidenced_DisposalPlan_",
+          "default": {
+            "value": null,
+            "evidence": "operator_statement",
+            "source": null
+          }
+        },
+        "disposal_reliability": {
+          "$ref": "#/$defs/Evidenced_float_",
+          "default": {
+            "value": null,
+            "evidence": "operator_statement",
+            "source": null
+          }
+        },
+        "passivation": {
+          "$ref": "#/$defs/Evidenced_Passivation_",
+          "default": {
+            "value": null,
+            "evidence": "operator_statement",
+            "source": null
+          }
+        },
+        "maneuverability": {
+          "$ref": "#/$defs/Evidenced_Maneuverability_",
+          "default": {
+            "value": null,
+            "evidence": "operator_statement",
+            "source": null
+          }
+        },
+        "min_miss_distance_km": {
+          "$ref": "#/$defs/Evidenced_float_",
+          "default": {
+            "value": null,
+            "evidence": "operator_statement",
+            "source": null
+          }
+        },
+        "relative_speed_km_s": {
+          "$ref": "#/$defs/Evidenced_float_",
+          "default": {
+            "value": null,
+            "evidence": "operator_statement",
+            "source": null
+          }
+        }
+      },
+      "title": "MissionInputs",
+      "type": "object"
+    },
+    "MissionRef": {
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Name"
+        },
+        "operator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Operator"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "MissionRef",
+      "type": "object"
+    },
+    "Passivation": {
+      "enum": [
+        "full",
+        "partial",
+        "none"
+      ],
+      "title": "Passivation",
+      "type": "string"
+    }
+  },
+  "description": "An SDER input document (see examples/*.yaml).",
+  "properties": {
+    "mission": {
+      "$ref": "#/$defs/MissionRef"
+    },
+    "inputs": {
+      "$ref": "#/$defs/MissionInputs",
+      "default": {
+        "mean_altitude_km": {
+          "evidence": "operator_statement",
+          "source": null,
+          "value": null
+        },
+        "mass_kg": {
+          "evidence": "operator_statement",
+          "source": null,
+          "value": null
+        },
+        "disposal_plan": {
+          "evidence": "operator_statement",
+          "source": null,
+          "value": null
+        },
+        "disposal_reliability": {
+          "evidence": "operator_statement",
+          "source": null,
+          "value": null
+        },
+        "passivation": {
+          "evidence": "operator_statement",
+          "source": null,
+          "value": null
+        },
+        "maneuverability": {
+          "evidence": "operator_statement",
+          "source": null,
+          "value": null
+        },
+        "min_miss_distance_km": {
+          "evidence": "operator_statement",
+          "source": null,
+          "value": null
+        },
+        "relative_speed_km_s": {
+          "evidence": "operator_statement",
+          "source": null,
+          "value": null
+        }
+      }
+    }
+  },
+  "required": [
+    "mission"
+  ],
+  "title": "Mission",
+  "type": "object"
+}

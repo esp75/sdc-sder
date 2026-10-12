@@ -1,0 +1,11 @@
+# A 1,400 kg derelict upper stage at 850 km with no disposal capability.
+mission: {id: example-upper-stage-850, name: Example derelict upper stage}
+inputs:
+  mean_altitude_km: {value: 850, evidence: verified, source: "public TLE catalogue"}
+  mass_kg: {value: 1400, evidence: verified}
+  disposal_plan: {value: none, evidence: verified}
+  disposal_reliability: {value: 0.0, evidence: verified}
+  passivation: {value: none, evidence: modeled}
+  maneuverability: {value: none, evidence: verified}
+  min_miss_distance_km: {value: 0.8, evidence: independently_observed}
+  relative_speed_km_s: {value: 14.2, evidence: independently_observed}

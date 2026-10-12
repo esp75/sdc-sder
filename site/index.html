@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A draft public-interest framework for understanding space debris exposure and verifying real improvements.">
+  <title>SDC + SDER — Vision and principles v0.1</title>
+  <style>
+    :root { color-scheme: light; --ink:#14243a; --muted:#465b72; --blue:#174a73; --line:#cbd8e3; --paper:#f6f8fa; --white:#fff; --accent:#d5edf3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font: 1rem/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--paper); }
+    a { color:var(--blue); text-underline-offset:.15em; }
+    a:focus-visible { outline:3px solid #b75122; outline-offset:3px; }
+    header, main, footer { max-width:72rem; margin:auto; padding:1.5rem clamp(1rem,4vw,3rem); }
+    .top { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; border-bottom:1px solid var(--line); }
+    .brand { font-weight:800; letter-spacing:.08em; color:var(--ink); text-decoration:none; }
+    nav { display:flex; gap:1rem; flex-wrap:wrap; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; font-weight:750; color:var(--blue); }
+    h1 { font-size:clamp(2.4rem,6vw,5rem); line-height:1.08; max-width:16ch; letter-spacing:-.045em; margin:.3em 0; }
+    h2 { font-size:clamp(1.5rem,3vw,2.3rem); line-height:1.2; letter-spacing:-.025em; }
+    h3 { font-size:1.18rem; margin-bottom:.3rem; }
+    .lead { font-size:clamp(1.12rem,2vw,1.35rem); max-width:50rem; color:var(--muted); }
+    .notice { border-left:4px solid var(--blue); background:#e8f2f7; padding:.85rem 1rem; max-width:53rem; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .card { background:var(--white); border:1px solid var(--line); border-radius:.65rem; padding:clamp(1.2rem,3vw,2rem); }
+    .card p { max-width:40rem; }
+    .link { display:inline-block; font-weight:700; margin-top:.7rem; }
+    .flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; list-style:none; padding:0; counter-reset:step; }
+    .flow li { background:var(--accent); padding:1rem; border-radius:.4rem; font-weight:650; }
+    .flow li::before { counter-increment:step; content:"0" counter(step) "  "; color:var(--blue); }
+    section { margin:3rem 0; }
+    footer { border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+    footer p { max-width:60rem; }
+    @media (max-width:680px) { .grid,.flow { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#top" aria-label="SDC and SDER home">SDC + SDER</a>
+    <nav aria-label="Page navigation"><a href="#public">For everyone</a><a href="#institutions">For institutions</a><a href="#research">Research</a><a href="#francais" lang="fr">Français</a></nav>
+  </header>
+  <main id="top">
+    <p class="eyebrow">Open release · Vision and principles v0.1</p>
+    <h1>Who is responsible for the risk left in orbit?</h1>
+    <p class="lead">We propose a way to describe a satellite mission's debris exposure and, separately, verify actions that actually reduce risk. The public and institutional conversations start from the same open principles.</p>
+    <p class="notice"><strong>Current status:</strong> SDC and SDER are proposals. There is no official rating, issued credit, certification or tradable market. The principles, research papers and reference code are openly licensed for consultation.</p>
+
+    <section aria-labelledby="steps-title">
+      <h2 id="steps-title">The idea in three steps</h2>
+      <ol class="flow"><li>Describe the mission and its lifecycle.</li><li>Review exposure, evidence and uncertainty.</li><li>Verify any claimed improvement separately.</li></ol>
+      <p>Carbon-credit systems offer an analogy for independent verification and avoiding double counting. Orbital risk is different from carbon and has no simple tonne-equivalent.</p>
+    </section>
+
+    <div class="grid">
+      <section class="card" id="public" aria-labelledby="public-title">
+        <p class="eyebrow">Public entry</p><h2 id="public-title">Start with the simple explanation</h2>
+        <p>SDER is a proposed way to explain mission debris exposure. SDC could one day record a verified cleanup or risk reduction. Neither exists as an official product today.</p>
+        <a class="link" href="https://github.com/spacedebriscredit/sdc-sder/blob/main/docs/explainers/en.md">Read the English explainer</a>
+      </section>
+      <section class="card" id="institutions" aria-labelledby="institutions-title">
+        <p class="eyebrow">Institutional entry</p><h2 id="institutions-title">Challenge the method before it becomes a rule</h2>
+        <p>Agencies, researchers, operators, insurers and purchasers can test evidence, uncertainty, conflicts, appeals and policy options in v0.1.</p>
+        <a class="link" href="https://github.com/spacedebriscredit/sdc-sder/blob/main/spec/institutional-brief.md">Read the institutional brief</a><br>
+        <a class="link" href="https://github.com/spacedebriscredit/sdc-sder/blob/main/spec/vision-and-principles-v0.1.md">Read the canonical principles</a>
+      </section>
+    </div>
+
+    <section aria-labelledby="research-title" id="research">
+      <p class="eyebrow">Research</p><h2 id="research-title">Papers and reference code</h2>
+      <ul>
+        <li><a class="link" href="https://github.com/spacedebriscredit/sdc-sder/tree/main/papers/2026-strauss-sdc-framework">Space Debris Credits: A Market-Based Framework for Governance and Environmental Stewardship in Orbit</a>, Kadri &amp; Shishkina, Strauss Center Space Traffic Conference 2026</li>
+        <li><a class="link" href="https://github.com/spacedebriscredit/sdc-sder/blob/main/papers/README.md">Working paper series</a>: legal pathways, the SDER and ΔR methodology, claim integrity</li>
+        <li><a class="link" href="https://github.com/spacedebriscredit/sdc-sder/blob/main/spec/rulebook-v0.2-consultation-draft.md">Rulebook, consultation draft v0.2</a></li>
+        <li><a class="link" href="https://github.com/spacedebriscredit/sdc-sder">Open-source reference implementation</a> (Python, Apache-2.0)</li>
+      </ul>
+    </section>
+
+    <section class="card" id="francais" lang="fr" aria-labelledby="fr-title">
+      <p class="eyebrow">Présentation en français</p><h2 id="fr-title">Rendre visibles les responsabilités en orbite</h2>
+      <p>SDER viserait à décrire l'exposition aux débris d'une mission. SDC pourrait un jour reconnaître une amélioration vérifiée. Il n'existe encore ni note ni crédit officiel.</p>
+      <a class="link" href="https://github.com/spacedebriscredit/sdc-sder/blob/main/docs/explainers/fr.md">Lire la présentation grand public</a>
+    </section>
+  </main>
+  <footer>
+    <p><strong>Origin:</strong> Maxime Kadri. A research programme of the SDC Institute (in formation). Competing interests are disclosed in the repository.</p>
+    <p><a href="https://github.com/spacedebriscredit/sdc-sder/blob/main/ORIGIN.md">Origin record</a> · <a href="https://github.com/spacedebriscredit/sdc-sder/blob/main/papers/README.md">Papers</a> · <a href="https://github.com/spacedebriscredit/sdc-sder/blob/main/DISCLOSURES.md">Disclosures</a> · <a href="https://github.com/spacedebriscredit/sdc-sder/blob/main/LICENSING.md">Licensing</a> · <a href="https://github.com/spacedebriscredit/sdc-sder">Source repository</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "label": "Illustrative research score - not an official SDER rating",
+  "mission_id": "example-upper-stage-850",
+  "methodology_id": "sder-research-v0.1",
+  "methodology_sha256": "76dbc7650b97a0e6e1cbb52f98c91dfbbbde11be9ebd22d1fe802907a08a99b0",
+  "status": "indicative",
+  "score": 91.92,
+  "low": 85.04,
+  "high": 94.92,
+  "band": "high",
+  "band_is_certain": true,
+  "missing_weight": 0.0,
+  "components": [
+    {
+      "name": "disposal",
+      "weight": 0.25,
+      "risk": 100.0,
+      "low": 95.0,
+      "high": 100.0,
+      "contribution": 25.0,
+      "evidence": "verified",
+      "missing_inputs": [],
+      "rationale": "plan 'none' (residual 100) with 0% success probability"
+    },
+    {
+      "name": "orbital_persistence",
+      "weight": 0.2,
+      "risk": 94.9895,
+      "low": 89.9895,
+      "high": 99.9895,
+      "contribution": 18.9979,
+      "evidence": "verified",
+      "missing_inputs": [],
+      "rationale": "~707 years natural decay at 850 km if left uncontrolled"
+    },
+    {
+      "name": "environment",
+      "weight": 0.15,
+      "risk": 100.0,
+      "low": 95.0,
+      "high": 100.0,
+      "contribution": 15.0,
+      "evidence": "verified",
+      "missing_inputs": [],
+      "rationale": "congestion band 750-1000 km"
+    },
+    {
+      "name": "conjunction",
+      "weight": 0.15,
+      "risk": 67.032,
+      "low": 57.032,
+      "high": 77.032,
+      "contribution": 10.0548,
+      "evidence": "independently_observed",
+      "missing_inputs": [],
+      "rationale": "closest approach 0.8 km (14.2 km/s)"
+    },
+    {
+      "name": "consequence",
+      "weight": 0.1,
+      "risk": 78.6532,
+      "low": 73.6532,
+      "high": 83.6532,
+      "contribution": 7.8653,
+      "evidence": "verified",
+      "missing_inputs": [],
+      "rationale": "1400 kg fragmentation mass"
+    },
+    {
+      "name": "passivation",
+      "weight": 0.075,
+      "risk": 100.0,
+      "low": 80.0,
+      "high": 100.0,
+      "contribution": 7.5,
+      "evidence": "modeled",
+      "missing_inputs": [],
+      "rationale": "passivation: none"
+    },
+    {
+      "name": "maneuverability",
+      "weight": 0.075,
+      "risk": 100.0,
+      "low": 95.0,
+      "high": 100.0,
+      "contribution": 7.5,
+      "evidence": "verified",
+      "missing_inputs": [],
+      "rationale": "maneuverability: none"
+    }
+  ]
+}

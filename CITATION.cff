@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use SDC/SDER material or code, please cite it as below. To cite the framework itself, cite the Strauss Center paper (preferred-citation)."
+title: "SDC and SDER: Space Debris Credit and Space Debris Exposure Rating — research programme and reference implementation"
+type: software
+version: 0.1.0
+date-released: 2026-10-12
+url: "https://spacedebriscredit.org"
+repository-code: "https://github.com/spacedebriscredit/sdc-sder"
+license: [Apache-2.0, CC-BY-SA-4.0, CC-BY-4.0]
+authors:
+  - family-names: Kadri
+    given-names: Maxime
+    affiliation: "SDC Institute (in formation)"
+keywords: [space debris, orbital sustainability, space traffic management, risk rating, environmental credits, space policy]
+preferred-citation:
+  type: conference-paper
+  title: "Space Debris Credits: A Market-Based Framework for Governance and Environmental Stewardship in Orbit"
+  authors:
+    - family-names: Kadri
+      given-names: Maxime
+    - family-names: Shishkina
+      given-names: Anna
+  conference:
+    name: "Strauss Center Space Traffic Conference 2026"
+  institution:
+    name: "Robert S. Strauss Center for International Security and Law, The University of Texas at Austin"
+  year: 2026

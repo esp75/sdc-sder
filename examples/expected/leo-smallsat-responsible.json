@@ -1,0 +1,92 @@
+{
+  "label": "Illustrative research score - not an official SDER rating",
+  "mission_id": "example-smallsat-550",
+  "methodology_id": "sder-research-v0.1",
+  "methodology_sha256": "76dbc7650b97a0e6e1cbb52f98c91dfbbbde11be9ebd22d1fe802907a08a99b0",
+  "status": "indicative",
+  "score": 27.72,
+  "low": 20.05,
+  "high": 45.22,
+  "band": "low",
+  "band_is_certain": false,
+  "missing_weight": 0.0,
+  "components": [
+    {
+      "name": "disposal",
+      "weight": 0.25,
+      "risk": 14.5,
+      "low": 0.0,
+      "high": 44.5,
+      "contribution": 3.625,
+      "evidence": "operator_statement",
+      "missing_inputs": [],
+      "rationale": "plan 'reentry_within_5y' (residual 10) with 95% success probability"
+    },
+    {
+      "name": "orbital_persistence",
+      "weight": 0.2,
+      "risk": 40.5698,
+      "low": 30.5698,
+      "high": 50.5698,
+      "contribution": 8.114,
+      "evidence": "independently_observed",
+      "missing_inputs": [],
+      "rationale": "~15.5 years natural decay at 550 km if left uncontrolled"
+    },
+    {
+      "name": "environment",
+      "weight": 0.15,
+      "risk": 70.0,
+      "low": 60.0,
+      "high": 80.0,
+      "contribution": 10.5,
+      "evidence": "independently_observed",
+      "missing_inputs": [],
+      "rationale": "congestion band 500-650 km"
+    },
+    {
+      "name": "conjunction",
+      "weight": 0.15,
+      "risk": 0.2479,
+      "low": 0.0,
+      "high": 20.2479,
+      "contribution": 0.0372,
+      "evidence": "modeled",
+      "missing_inputs": [],
+      "rationale": "closest approach 12 km (11 km/s)"
+    },
+    {
+      "name": "consequence",
+      "weight": 0.1,
+      "risk": 54.4023,
+      "low": 49.4023,
+      "high": 59.4023,
+      "contribution": 5.4402,
+      "evidence": "verified",
+      "missing_inputs": [],
+      "rationale": "150 kg fragmentation mass"
+    },
+    {
+      "name": "passivation",
+      "weight": 0.075,
+      "risk": 0.0,
+      "low": 0.0,
+      "high": 30.0,
+      "contribution": 0.0,
+      "evidence": "operator_statement",
+      "missing_inputs": [],
+      "rationale": "passivation: full"
+    },
+    {
+      "name": "maneuverability",
+      "weight": 0.075,
+      "risk": 0.0,
+      "low": 0.0,
+      "high": 10.0,
+      "contribution": 0.0,
+      "evidence": "independently_observed",
+      "missing_inputs": [],
+      "rationale": "maneuverability: propulsive"
+    }
+  ]
+}

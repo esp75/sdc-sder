@@ -1,0 +1,112 @@
+# SDER research methodology v0.1. ILLUSTRATIVE, NOT AN OFFICIAL RATING METHOD.
+#
+# Every weight, table and threshold here is a placeholder. They make the
+# principles in spec/vision-and-principles-v0.1.md concrete and testable. None
+# has been calibrated or independently reviewed. Changing the method means
+# changing this file. The engine records this file's SHA-256 in every
+# assessment (principle 7, versioned decisions).
+
+id: sder-research-v0.1
+status: illustrative
+title: SDER research method v0.1 (illustrative)
+
+# Weights must sum to 1.0. Each component returns a risk in [0, 100], where
+# higher means more debris exposure.
+weights:
+  disposal: 0.25
+  orbital_persistence: 0.20
+  environment: 0.15
+  conjunction: 0.15
+  consequence: 0.10
+  passivation: 0.075
+  maneuverability: 0.075
+
+# Uncertainty half-width, in risk points (0-100 scale), applied to a component
+# according to the weakest evidence class among its inputs (principle 2,
+# observable evidence; principle 3, scientific uncertainty).
+evidence_uncertainty:
+  verified: 5
+  independently_observed: 10
+  modeled: 20
+  operator_statement: 30
+
+# Missing data (principle 4). A missing component is scored at its worst case
+# (100) for the point estimate, and its interval spans 0-100. Never substitute
+# a favourable value. If the missing weight exceeds this share, the result is
+# withheld instead of reported as provisional.
+withhold_if_missing_weight_above: 0.30
+
+bands:
+  low_below: 34
+  medium_below: 67
+
+disposal:
+  # Residual risk when the disposal succeeds, by plan type.
+  plan_risk:
+    controlled_reentry: 0
+    reentry_within_5y: 10
+    reentry_within_25y: 40
+    graveyard_orbit: 30
+    none: 100
+  # A failed disposal leaves an abandoned object: risk = 100.
+  # risk = reliability * plan_risk + (1 - reliability) * 100
+
+orbital_persistence:
+  # Rough natural-decay lifetime by mean altitude, for a typical small satellite
+  # at moderate solar activity. Order-of-magnitude placeholder: real values
+  # depend strongly on ballistic coefficient and the solar cycle.
+  # [altitude_km, lifetime_years], log-interpolated between points.
+  lifetime_table:
+    - [200, 0.003]
+    - [300, 0.1]
+    - [400, 1]
+    - [500, 8]
+    - [600, 30]
+    - [700, 150]
+    - [800, 500]
+    - [1000, 2000]
+    - [2000, 10000]
+  # risk = 100 * log10(1 + years) / log10(1 + saturation_years), capped at 100.
+  saturation_years: 1000
+
+environment:
+  # Congestion score by mean altitude band [min_km, max_km, risk]. Placeholder
+  # profile: debris density peaks near 750-1000 km, and large-constellation
+  # shells sit at 500-650 km.
+  bands:
+    - [0, 400, 10]
+    - [400, 500, 40]
+    - [500, 650, 70]
+    - [650, 750, 60]
+    - [750, 1000, 100]
+    - [1000, 1500, 60]
+    - [1500, 2000, 30]
+    - [2000, 35586, 20]
+    - [35586, 35986, 60]
+  default: 10
+
+conjunction:
+  # Simple screening proxy from a single closest-approach record.
+  # geometry = 100 * exp(-min_miss_km / characteristic_km)
+  # speed_factor = clamp(relative_speed / reference_speed, min_speed_factor, 1)
+  # Unknown speed gives factor 1.0, which is conservative.
+  characteristic_km: 2.0
+  reference_speed_km_s: 10.0
+  min_speed_factor: 0.3
+
+consequence:
+  # Fragmentation consequence grows with mass.
+  # risk = 100 * log10(mass) / log10(saturation_mass_kg), clamped to 0-100.
+  saturation_mass_kg: 10000
+
+passivation:
+  levels:
+    full: 0
+    partial: 50
+    none: 100
+
+maneuverability:
+  levels:
+    propulsive: 0
+    drag_device: 40
+    none: 100
