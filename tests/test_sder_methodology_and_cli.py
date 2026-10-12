@@ -24,9 +24,14 @@ def _write(tmp_path: Path, data: dict[str, object]) -> Path:
     return p
 
 
-def test_bundled_methodology_is_marked_illustrative() -> None:
+def test_bundled_methodology_is_the_latest_research_method() -> None:
     m = load_methodology()
-    assert m.status == "illustrative" and m.id == "sder-research-v0.1"
+    assert m.status == "research" and m.id == "sder-research-v0.2"
+
+
+def test_v01_stays_loadable_for_reproducibility() -> None:
+    m = load_methodology(ROOT / "src" / "sder" / "methodology" / "research-v0.1.yaml")
+    assert m.id == "sder-research-v0.1" and m.sha256.startswith("76dbc7650b97")
 
 
 def test_hash_changes_when_method_changes(tmp_path: Path) -> None:
@@ -61,9 +66,10 @@ def test_examples_behave_as_documented() -> None:
 
 
 def test_expected_outputs_are_current() -> None:
-    for yml in sorted(EXAMPLES.glob("*.yaml")):
-        expected = json.loads((EXAMPLES / "expected" / f"{yml.stem}.json").read_text())
-        assert assess(load_mission(yml)).model_dump(mode="json") == expected, yml.name
+    for folder in (EXAMPLES, EXAMPLES / "cases"):
+        for yml in sorted(folder.glob("*.yaml")):
+            expected = json.loads((folder / "expected" / f"{yml.stem}.json").read_text())
+            assert assess(load_mission(yml)).model_dump(mode="json") == expected, yml.name
 
 
 def test_cli_text_json_methodology_schema(capsys: pytest.CaptureFixture[str]) -> None:
@@ -76,7 +82,7 @@ def test_cli_text_json_methodology_schema(capsys: pytest.CaptureFixture[str]) ->
     assert main(["score", "--json", *files]) == 0
     assert len(json.loads(capsys.readouterr().out)) == len(files)
     assert main(["methodology"]) == 0
-    assert json.loads(capsys.readouterr().out)["id"] == "sder-research-v0.1"
+    assert json.loads(capsys.readouterr().out)["id"] == "sder-research-v0.2"
     assert main(["schema"]) == 0
     assert set(json.loads(capsys.readouterr().out)) == {"mission", "assessment"}
 

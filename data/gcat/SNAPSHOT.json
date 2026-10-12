@@ -1,0 +1,18 @@
+{
+  "source": "GCAT: General Catalog of Artificial Space Objects, Jonathan C. McDowell",
+  "source_url": "https://planet4589.org/space/gcat/",
+  "license": "CC-BY-4.0",
+  "retrieved": "2026-10-12",
+  "satcat_updated": "Updated 2026 Oct 11 1225:05",
+  "currentcat_updated": "Updated 2026 Oct 11 1307:58",
+  "raw_sha256": {
+    "satcat.tsv": "e191df4bd59098a5d8d8e2858e42c2dd38218177a1b6f8b9b064be48f0514e6a",
+    "currentcat.tsv": "5d3c43d0ffebbd823b52d52cb25be156edf39a52a0445e2cc73bca367183f2b8",
+    "active.tsv": "86aa1c550793cc98b3b1318ad1255ed94c3582b30810107243dc71343520ba5d"
+  },
+  "extract_sha256": {
+    "leo-objects.tsv": "878d578993ff1676d84479d168c769cfa761838d34e917a507ed326401bf28e7",
+    "decayed-sample.tsv": "c26c3f49208c676ad7abf9c2a2af57a3f1d486e351057ae078e5e01a4ee12204"
+  },
+  "leo_apogee_below_km": 2000.0
+}

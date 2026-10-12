@@ -1,0 +1,101 @@
+{
+  "label": "Illustrative research score - not an official SDER rating",
+  "mission_id": "gcat-66565",
+  "methodology_id": "sder-research-v0.2",
+  "methodology_sha256": "d352186bed9864f574f66f53032df492f01ca28643be6daff449a9ce764d38aa",
+  "status": "withheld",
+  "score": null,
+  "low": 19.13,
+  "high": 83.63,
+  "band": null,
+  "band_is_certain": false,
+  "missing_weight": 0.55,
+  "components": [
+    {
+      "name": "disposal",
+      "weight": 0.25,
+      "risk": 100.0,
+      "low": 0.0,
+      "high": 100.0,
+      "contribution": 25.0,
+      "evidence": null,
+      "missing_inputs": [
+        "disposal_plan",
+        "disposal_reliability"
+      ],
+      "rationale": "MISSING: disposal plan or its reliability not provided; scored at worst case"
+    },
+    {
+      "name": "orbital_persistence",
+      "weight": 0.2,
+      "risk": 14.0933,
+      "low": 4.0933,
+      "high": 24.0933,
+      "contribution": 2.8187,
+      "evidence": "independently_observed",
+      "missing_inputs": [],
+      "rationale": "~1.65 years natural decay at 483 km if left uncontrolled"
+    },
+    {
+      "name": "environment",
+      "weight": 0.15,
+      "risk": 100.0,
+      "low": 90.0,
+      "high": 100.0,
+      "contribution": 15.0,
+      "evidence": "independently_observed",
+      "missing_inputs": [],
+      "rationale": "congestion band 450-500 km"
+    },
+    {
+      "name": "conjunction",
+      "weight": 0.15,
+      "risk": 100.0,
+      "low": 0.0,
+      "high": 100.0,
+      "contribution": 15.0,
+      "evidence": null,
+      "missing_inputs": [
+        "min_miss_distance_km"
+      ],
+      "rationale": "MISSING: no conjunction screening provided; scored at worst case"
+    },
+    {
+      "name": "consequence",
+      "weight": 0.1,
+      "risk": 68.1069,
+      "low": 48.1069,
+      "high": 88.1069,
+      "contribution": 6.8107,
+      "evidence": "modeled",
+      "missing_inputs": [],
+      "rationale": "530 kg fragmentation mass"
+    },
+    {
+      "name": "passivation",
+      "weight": 0.075,
+      "risk": 100.0,
+      "low": 0.0,
+      "high": 100.0,
+      "contribution": 7.5,
+      "evidence": null,
+      "missing_inputs": [
+        "passivation"
+      ],
+      "rationale": "MISSING: passivation plan not provided; scored at worst case"
+    },
+    {
+      "name": "maneuverability",
+      "weight": 0.075,
+      "risk": 100.0,
+      "low": 0.0,
+      "high": 100.0,
+      "contribution": 7.5,
+      "evidence": null,
+      "missing_inputs": [
+        "maneuverability"
+      ],
+      "rationale": "MISSING: maneuverability not provided; scored at worst case"
+    }
+  ]
+}

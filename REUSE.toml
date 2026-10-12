@@ -23,3 +23,15 @@ path = ["spec/institutional-brief.md", "spec/consultation-template.md", "papers/
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 Maxime Kadri"
 SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["data/gcat/*.tsv", "data/gcat/raw/**", "data/gcat/SNAPSHOT.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Jonathan C. McDowell, GCAT (General Catalog of Artificial Space Objects), https://planet4589.org/space/gcat/"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "data/gcat/README.md"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Maxime Kadri"
+SPDX-License-Identifier = "CC-BY-4.0"

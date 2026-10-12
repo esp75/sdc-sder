@@ -9,3 +9,4 @@ coverage.xml
 dist/
 .hypothesis/
 .DS_Store
+data/gcat/raw/

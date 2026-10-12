@@ -25,11 +25,9 @@ def dump(path: Path, data: object) -> None:
 def main() -> None:
     dump(ROOT / "schemas" / "sder-mission.schema.json", Mission.model_json_schema())
     dump(ROOT / "schemas" / "sder-assessment.schema.json", Assessment.model_json_schema())
-    for yml in sorted((ROOT / "examples").glob("*.yaml")):
-        dump(
-            ROOT / "examples" / "expected" / f"{yml.stem}.json",
-            assess(load_mission(yml)).model_dump(mode="json"),
-        )
+    for folder in (ROOT / "examples", ROOT / "examples" / "cases"):
+        for yml in sorted(folder.glob("*.yaml")):
+            dump(folder / "expected" / f"{yml.stem}.json", assess(load_mission(yml)).model_dump(mode="json"))
 
 
 if __name__ == "__main__":

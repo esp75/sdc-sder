@@ -1,4 +1,4 @@
-"""Command line: ``sder score``, ``sder methodology``, ``sder schema``."""
+"""Command line: ``sder score``, ``sder sensitivity``, ``sder methodology``, ``sder schema``."""
 
 from __future__ import annotations
 
@@ -13,6 +13,8 @@ import yaml
 from .engine import assess
 from .methodology import load_methodology
 from .models import Assessment, Mission
+from .sensitivity import analyse
+from .sensitivity import render as render_sensitivity
 
 
 def load_mission(path: Path) -> Mission:
@@ -48,6 +50,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     score.add_argument("files", nargs="+", type=Path)
     score.add_argument("--methodology", type=Path, default=None)
     score.add_argument("--json", action="store_true", help="emit JSON")
+    sens = sub.add_parser("sensitivity", help="variance shares and weight perturbation for missions")
+    sens.add_argument("files", nargs="+", type=Path)
+    sens.add_argument("--methodology", type=Path, default=None)
+    sens.add_argument("--samples", type=int, default=5000)
+    sens.add_argument("--concentration", type=float, default=100.0, help="Dirichlet concentration")
+    sens.add_argument("--seed", type=int, default=2026)
+    sens.add_argument("--json", action="store_true")
     meth = sub.add_parser("methodology", help="print the methodology in use")
     meth.add_argument("--methodology", type=Path, default=None)
     sub.add_parser("schema", help="print JSON Schemas for inputs and assessments")
@@ -61,6 +70,13 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(json.dumps(payload[0] if len(payload) == 1 else payload, indent=2))
         else:
             print("\n\n".join(render(r) for r in results))
+    elif args.cmd == "sensitivity":
+        m = load_methodology(args.methodology)
+        res = [analyse(load_mission(f), m, args.samples, args.concentration, args.seed) for f in args.files]
+        if args.json:
+            print(json.dumps([r.model_dump(mode="json") for r in res], indent=2))
+        else:
+            print("\n\n".join(render_sensitivity(r) for r in res))
     elif args.cmd == "methodology":
         print(json.dumps(load_methodology(args.methodology).model_dump(mode="json"), indent=2))
     else:

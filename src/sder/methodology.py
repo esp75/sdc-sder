@@ -13,7 +13,7 @@ from pydantic import BaseModel, ConfigDict, model_validator
 
 from .models import DisposalPlan, EvidenceClass, Maneuverability, Passivation
 
-DEFAULT_METHODOLOGY = "research-v0.1.yaml"
+DEFAULT_METHODOLOGY = "research-v0.2.yaml"
 
 
 class Bands(BaseModel):

@@ -200,7 +200,7 @@ def band_for(score: float, m: Methodology) -> Band:
 
 
 def assess(mission: Mission, methodology: Methodology | None = None) -> Assessment:
-    """Score a mission under a methodology (default: bundled research v0.1)."""
+    """Score a mission under a methodology (default: the bundled research method)."""
     m = methodology or load_methodology()
     if set(m.weights) != set(COMPONENTS):
         raise ValueError(f"methodology weights {sorted(m.weights)} != components {sorted(COMPONENTS)}")

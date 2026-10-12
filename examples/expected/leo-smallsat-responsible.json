@@ -1,12 +1,12 @@
 {
   "label": "Illustrative research score - not an official SDER rating",
   "mission_id": "example-smallsat-550",
-  "methodology_id": "sder-research-v0.1",
-  "methodology_sha256": "76dbc7650b97a0e6e1cbb52f98c91dfbbbde11be9ebd22d1fe802907a08a99b0",
+  "methodology_id": "sder-research-v0.2",
+  "methodology_sha256": "d352186bed9864f574f66f53032df492f01ca28643be6daff449a9ce764d38aa",
   "status": "indicative",
-  "score": 27.72,
-  "low": 20.05,
-  "high": 45.22,
+  "score": 24.86,
+  "low": 17.2,
+  "high": 42.36,
   "band": "low",
   "band_is_certain": false,
   "missing_weight": 0.0,
@@ -25,24 +25,24 @@
     {
       "name": "orbital_persistence",
       "weight": 0.2,
-      "risk": 40.5698,
-      "low": 30.5698,
-      "high": 50.5698,
-      "contribution": 8.114,
+      "risk": 25.6913,
+      "low": 15.6913,
+      "high": 35.6913,
+      "contribution": 5.1383,
       "evidence": "independently_observed",
       "missing_inputs": [],
-      "rationale": "~15.5 years natural decay at 550 km if left uncontrolled"
+      "rationale": "~4.9 years natural decay at 550 km if left uncontrolled"
     },
     {
       "name": "environment",
       "weight": 0.15,
-      "risk": 70.0,
-      "low": 60.0,
-      "high": 80.0,
-      "contribution": 10.5,
+      "risk": 70.8,
+      "low": 60.8,
+      "high": 80.8,
+      "contribution": 10.62,
       "evidence": "independently_observed",
       "missing_inputs": [],
-      "rationale": "congestion band 500-650 km"
+      "rationale": "congestion band 550-600 km"
     },
     {
       "name": "conjunction",
