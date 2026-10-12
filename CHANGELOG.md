@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.0 (2026-10-12)
+
+- **Working paper SDC-WP-2026-04:** the paper's Figures 2–3 on real data. R = M × L × Pc for 18,036 intact LEO objects from GCAT; targeted against random removal; a lifetime backtest; a class-level comparison with published lists of the most concerning objects.
+- **Code:**
+  - `sdc.catalogue` and `sdc catalogue rank | compare | backtest`;
+  - `sder.sensitivity` and `sder sensitivity`;
+  - SDER method v0.2, now the default, with persistence and environment calibrated from open data (v0.1 kept for reproducibility).
+- **Data:** a dated GCAT extract (CC BY 4.0) with SHA-256 fingerprints, and scripts that rebuild it and every number in WP-04.
+- **Examples:** 20 case studies of real objects in `examples/cases/`.
+- **Review:** all working papers are open for outside peer review, with an issue template.
+- **Rights:** both authors release the Strauss paper under CC BY 4.0, and the conference's rights policy allows this.
+- **Writing:** every document edited for plain, specific language.
+
 ## 0.1.0 (2026-10-12)
 
 First public release of the SDC Institute research programme.

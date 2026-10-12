@@ -1,14 +1,15 @@
 # Licensing
 
-The repository contains three kinds of material, and each has its own license. [`REUSE.toml`](REUSE.toml) states the license of every path in a machine-readable form.
+The repository contains four kinds of material, and each has its own license. [`REUSE.toml`](REUSE.toml) states the license of every path in a machine-readable form.
 
 | Material | Paths | License |
 |---|---|---|
 | Normative texts: *Vision and Principles*, *Rulebook consultation draft* | `spec/vision-and-principles-v0.1.md`, `spec/rulebook-v0.2-consultation-draft.md` | [CC BY-SA 4.0](LICENSES/CC-BY-SA-4.0.txt) |
 | Papers, explainers, institutional brief, consultation template, website text | `papers/`, `docs/`, `spec/` (other files), `site/` | [CC BY 4.0](LICENSES/CC-BY-4.0.txt) |
 | Software, schemas, methodology data, examples, tests | `src/`, `schemas/`, `examples/`, `tests/`, `scripts/` | [Apache-2.0](LICENSES/Apache-2.0.txt) |
+| Extracts of GCAT, © Jonathan C. McDowell | `data/gcat/` | [CC BY 4.0](LICENSES/CC-BY-4.0.txt) |
 
-All three licenses allow both commercial and non-commercial use.
+All of these licenses allow both commercial and non-commercial use.
 
 - **CC BY-SA 4.0** requires credit. Adapted versions of the normative texts must be shared under the same license or a compatible one, so that a modified standard stays open.
 - **CC BY 4.0** requires credit only.

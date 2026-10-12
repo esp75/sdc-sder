@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use SDC/SDER material or code, please cite it as below. To cite the framework itself, cite the Strauss Center paper (preferred-citation)."
 title: "SDC and SDER: Space Debris Credit and Space Debris Exposure Rating — research programme and reference implementation"
 type: software
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-10-12
 url: "https://spacedebriscredit.org"
 repository-code: "https://github.com/spacedebriscredit/sdc-sder"

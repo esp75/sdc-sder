@@ -5,7 +5,7 @@
 | **Series** | SDC Institute Working Paper SDC-WP-2026-03 |
 | **Version** | 0.1, 12 October 2026 |
 | **Author** | Maxime Kadri, SDC Institute (in formation) |
-| **Status** | Working paper. Not peer reviewed. |
+| **Status** | Working paper. Open for outside peer review ([how to review](../ROADMAP.md#outside-peer-review)). |
 | **Extends** | Kadri & Shishkina (2026), §4, §7 and §16.2 |
 | **Code** | [`src/sdc/models.py`](../../src/sdc/models.py), [`src/sdc/registry.py`](../../src/sdc/registry.py) |
 | **Competing interests** | See [DISCLOSURES.md](../../DISCLOSURES.md). This paper also serves as the public technical disclosure of the registry designs from the originator's abandoned 2025 patent application (§6). |

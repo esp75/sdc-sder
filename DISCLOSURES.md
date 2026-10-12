@@ -19,4 +19,4 @@ AI assistants were used to edit text, convert formats, write and test code, and 
 
 ## Status
 
-None of the material here is peer reviewed unless a document says otherwise. The code produces illustrative research outputs with placeholder parameters. No SDER rating has been issued, and no SDC exists.
+None of the material here has been peer reviewed. All working papers are open for outside peer review. The code produces illustrative research outputs; most of its parameters are still placeholders. No SDER rating has been issued, and no SDC exists.

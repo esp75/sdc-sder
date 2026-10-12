@@ -3,11 +3,11 @@
 | | |
 |---|---|
 | **Series** | SDC Institute Working Paper SDC-WP-2026-02 |
-| **Version** | 0.1, 12 October 2026 |
+| **Version** | 0.2, 12 October 2026 (method v0.2; see WP-04 for the calibration) |
 | **Author** | Maxime Kadri, SDC Institute (in formation) |
-| **Status** | Working paper. Not peer reviewed. All parameters are uncalibrated placeholders. |
+| **Status** | Working paper. Open for outside peer review ([how to review](../ROADMAP.md#outside-peer-review)). Persistence and environment are calibrated to open data in method v0.2; the other parameters are still placeholders. |
 | **Extends** | Kadri & Shishkina (2026), §5, §6 and §13 |
-| **Code** | [`src/sder`](../../src/sder/), [`src/sdc/risk.py`](../../src/sdc/risk.py), method file [`research-v0.1.yaml`](../../src/sder/methodology/research-v0.1.yaml) |
+| **Code** | [`src/sder`](../../src/sder/), [`src/sdc/risk.py`](../../src/sdc/risk.py), method files [`research-v0.2.yaml`](../../src/sder/methodology/research-v0.2.yaml) (default) and [`research-v0.1.yaml`](../../src/sder/methodology/research-v0.1.yaml) |
 | **Competing interests** | See [DISCLOSURES.md](../../DISCLOSURES.md) |
 | **Funding** | None |
 | **Data availability** | Examples and expected outputs are in [`examples/`](../../examples/). Everything here can be reproduced with `uv run sder score` and `uv run sdc delta-r`. |
@@ -15,7 +15,7 @@
 
 ## Abstract
 
-Kadri & Shishkina (2026) propose two quantitative constructs. One is a mission-level **Space Debris Exposure Rating (SDER)** built as a weighted sum of a few normalised factors. The other is an object-level risk proxy $R_i = M_i \times L_i \times Pc_i$, whose change $\Delta R$ is meant to size outcome-based credits. This paper documents an open, tested reference implementation of both. Its central design choice is that **evidence quality and missing data are part of the output, not hidden inside it**. Each input carries an evidence class. Weaker evidence widens the uncertainty interval. A missing input is scored at its worst case, and a result with too much missing weight is withheld. Credits are counted from the conservative bound of $\Delta R$. We describe the method, state which parts of the paper's Table 2 it covers, position it against existing indices (the Space Sustainability Rating, ECOB, CSI and the "50 most concerning" list), and set out what calibration and validation it still needs. No parameter in v0.1 is calibrated, and every output is labelled as illustrative.
+Kadri & Shishkina (2026) propose two quantitative constructs. One is a mission-level **Space Debris Exposure Rating (SDER)** built as a weighted sum of a few normalised factors. The other is an object-level risk proxy $R_i = M_i \times L_i \times Pc_i$, whose change $\Delta R$ is meant to size outcome-based credits. This paper documents an open, tested reference implementation of both. Its central design choice is that **evidence quality and missing data are part of the output, not hidden inside it**. Each input carries an evidence class. Weaker evidence widens the uncertainty interval. A missing input is scored at its worst case, and a result with too much missing weight is withheld. Credits are counted from the conservative bound of $\Delta R$. We describe the method, state which parts of the paper's Table 2 it covers, position it against existing indices (the Space Sustainability Rating, ECOB, CSI and the "50 most concerning" list), and set out what calibration and validation it still needs. Method v0.2 calibrates two of the tables from open data (WP-04). The rest are still placeholders, and every output is labelled as illustrative.
 
 ## 1 Two constructs, two scales
 
@@ -26,7 +26,7 @@ The two constructs answer different questions.
 
 They share a data layer (altitude, mass, disposal and conjunction information) but are computed separately. This keeps the uncertainty of one out of the other.
 
-## 2 SDER reference method v0.1
+## 2 SDER reference method
 
 ### 2.1 Components
 
@@ -35,8 +35,8 @@ The engine ([`engine.py`](../../src/sder/engine.py)) computes seven component ri
 | Component | Weight | Inputs | Placeholder formula | Paper Table 2 input |
 |---|---|---|---|---|
 | Disposal | 0.25 | plan, reliability | residual risk by plan, weighted by reliability; a failed disposal counts as 100 | Predicted time to disposal |
-| Orbital persistence | 0.20 | mean altitude | log-scaled natural-decay lifetime from an altitude table | Altitude; orbital regime |
-| Environment | 0.15 | mean altitude | congestion score by altitude band | Orbital regime or protected shell |
+| Orbital persistence | 0.20 | mean altitude | log-scaled natural-decay lifetime from an altitude table (v0.2: drag-decay model, WP-04 §6) | Altitude; orbital regime |
+| Environment | 0.15 | mean altitude | congestion score by altitude band (v0.2: catalogue spatial density, WP-04 §6) | Orbital regime or protected shell |
 | Conjunction | 0.15 | closest miss distance, relative speed | $100\,e^{-d/2\,\text{km}}$ times a speed factor | (coordination burden) |
 | Consequence | 0.10 | mass | log-scaled mass up to 10,000 kg | (mass and area) |
 | Passivation | 0.075 | level | full 0 / partial 50 / none 100 | Passivation status |
@@ -62,8 +62,8 @@ Weights and tables live in a YAML method file, not in code. Every assessment rec
 
 | Example | Score [interval] | Band | Status |
 |---|---|---|---|
-| [Responsible LEO smallsat](../../examples/leo-smallsat-responsible.yaml), 550 km, propulsive, disposal plan stated only by the operator | 27.7 [20.1–45.2] | low (uncertain) | indicative |
-| [Derelict upper stage](../../examples/leo-derelict-upper-stage.yaml), 850 km, 1,400 kg, no disposal, no passivation | 91.9 | high (certain) | indicative |
+| [Responsible LEO smallsat](../../examples/leo-smallsat-responsible.yaml), 550 km, propulsive, disposal plan stated only by the operator | 24.9 [17.2–42.4] | low (uncertain) | indicative |
+| [Derelict upper stage](../../examples/leo-derelict-upper-stage.yaml), 850 km, 1,400 kg, no disposal, no passivation | 84.0 [77.1–87.8] | high (certain) | indicative |
 | [Sparse operator claims](../../examples/sparse-operator-claims.yaml) | — | — | withheld |
 
 The first row shows the intended behaviour. The smallsat's point score is low, but because its disposal plan rests only on the operator's word, its interval crosses into the medium band, and the output says so.
@@ -91,25 +91,25 @@ Property tests check four things. Removal never increases risk, at any bound. $\
 
 ## 5 Design decisions open to challenge
 
-1. **A weighted sum versus physical aggregation.** The paper chose a parsimonious weighted sum because it is easy to read (§5). The cost is that weights are value judgements. Each weight in v0.1 is a placeholder. Any change needs a source and a sensitivity analysis.
+1. **A weighted sum versus physical aggregation.** The paper chose a parsimonious weighted sum because it is easy to read (§5). The cost is that weights are value judgements. Each weight is still a placeholder in v0.2. Any change needs a source and a sensitivity analysis.
 2. **Compliance history is excluded.** Using past compliance as a rating input can lock in incumbents and penalise new entrants for reasons unrelated to the mission's physics. We leave it out until a procedure for appeals and corrections exists, in line with principle 5 (comparability with limits).
 3. **Evidence widths are policy choices.** See §2.2.
 4. **Persistence $L$ as a fraction of the horizon.** This keeps $R$ bounded and readable. It is less faithful to the physics than a lifetime integral weighted by flux.
 
 ## 6 Calibration and validation programme
 
-These items are tracked in the [roadmap](../ROADMAP.md).
+Version 0.1 of this paper listed six items. [WP-04](../wp-04-catalogue/README.md) reports on them, and the [roadmap](../ROADMAP.md) tracks what is left.
 
-1. **Lifetime.** Replace the altitude table with a decay model that accounts for ballistic coefficient and solar-flux scenarios.
-2. **Environment and Pc.** Replace the band scores and the single-miss-distance proxy with spatial density from public catalogues, and use a proper collision-probability method where conjunction data allow it.
-3. **Consequence.** Replace log-mass with a fragment-generation estimate from the NASA Standard Breakup Model (Johnson et al. 2001) [johnson2001sbm], or with ECOB.
-4. **Sensitivity.** Run Monte Carlo or Sobol analysis of the weights and bands, and publish how often a mission's band changes.
-5. **Real data for the paper's Figures 2–3.** Rank intact LEO objects by $R_i$ from catalogue data, then compare the ΔR of targeted and random removal sets.
-6. **External comparison.** Score missions that have published SSR results. Check whether objects on McKnight et al.'s list fall in the top set of $R_i$.
+1. **Lifetime.** Done in method v0.2: a drag-decay model with three solar-activity levels, backtested on 404 reentered rocket bodies (WP-04 §3).
+2. **Environment and Pc.** Environment done in v0.2 from catalogue spatial density. The conjunction proxy remains, because a covariance-based collision probability needs data that is not public.
+3. **Consequence.** Kept as log-mass. The NASA Standard Breakup Model (Johnson et al. 2001) [johnson2001sbm] makes the fragment count proportional to $M^{0.75}$, which gives the same ranking. ECOB remains an option.
+4. **Sensitivity.** Done: `sder sensitivity` (WP-04 §7). It found that SDER rates a 1.3 kg derelict cubesat in the same band as a 9-tonne stage, which v0.3 should fix.
+5. **Real data for the paper's Figures 2–3.** Done (WP-04 §4–5).
+6. **External comparison.** Done at class level (WP-04 §8). Object-level comparison and SSR comparison wait on data.
 
 ## 7 Limitations
 
-All weights, tables and widths are uncalibrated. The method does not model debris smaller than 10 cm, in line with the paper's §11. Conjunction is represented by a single screening proxy. Outputs are **illustrative research scores**. They are not ratings and must not be presented as "SDER rated" (see [TRADEMARKS.md](../../TRADEMARKS.md)).
+Weights, evidence widths and most tables are uncalibrated; v0.2 calibrates persistence and environment only. The method does not model debris smaller than 10 cm, in line with the paper's §11. Conjunction is represented by a single screening proxy. Outputs are **illustrative research scores**. They are not ratings and must not be presented as "SDER rated" (see [TRADEMARKS.md](../../TRADEMARKS.md)).
 
 ## References
 

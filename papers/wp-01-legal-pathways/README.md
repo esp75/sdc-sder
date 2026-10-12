@@ -5,7 +5,7 @@
 | **Series** | SDC Institute Working Paper SDC-WP-2026-01 |
 | **Version** | 0.1, 12 October 2026 |
 | **Author** | Maxime Kadri, SDC Institute (in formation) |
-| **Status** | Working paper. Not peer reviewed. Comments are invited through the [consultation template](../../spec/consultation-template.md). |
+| **Status** | Working paper. Open for outside peer review ([how to review](../ROADMAP.md#outside-peer-review)). Comments are invited through the [consultation template](../../spec/consultation-template.md). |
 | **Extends** | Kadri & Shishkina (2026), §9 |
 | **Competing interests** | See [DISCLOSURES.md](../../DISCLOSURES.md) |
 | **Funding** | None |
