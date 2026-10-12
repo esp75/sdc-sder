@@ -1,9 +1,9 @@
 # Contributing
 
-Comments, objections and evidence are the most valuable contributions right now. v0.1 is a consultation draft, not a standard.
+The most useful contributions right now are comments, objections and evidence. The principles and the Rulebook are consultation drafts; no standard exists yet.
 
 - **Comments on the principles:** open an issue using the questions in [spec/consultation-template.md](spec/consultation-template.md). Name your evidence and any conflict of interest.
-- **Methodology changes:** propose changes to `src/sder/methodology/*.yaml` by pull request, following [GOVERNANCE.md](GOVERNANCE.md). Explain the scientific basis and cite your sources. Weights and thresholds are placeholders until independent review.
+- **Methodology changes:** propose changes to `src/sder/methodology/*.yaml` by pull request, following [GOVERNANCE.md](GOVERNANCE.md). Explain the scientific basis and cite your sources. Most weights and thresholds stay placeholders until an independent review.
 - **Code:**
   - Before you open a pull request, run `uv run ruff check`, `uv run mypy` and `uv run pytest`.
   - New behaviour needs tests.

@@ -15,7 +15,7 @@
 
 ## Abstract
 
-Kadri & Shishkina (2026) propose two quantitative constructs. One is a mission-level **Space Debris Exposure Rating (SDER)** built as a weighted sum of a few normalised factors. The other is an object-level risk proxy $R_i = M_i \times L_i \times Pc_i$, whose change $\Delta R$ is meant to size outcome-based credits. This paper documents an open, tested reference implementation of both. Its central design choice is that **evidence quality and missing data are part of the output, not hidden inside it**. Each input carries an evidence class. Weaker evidence widens the uncertainty interval. A missing input is scored at its worst case, and a result with too much missing weight is withheld. Credits are counted from the conservative bound of $\Delta R$. We describe the method, state which parts of the paper's Table 2 it covers, position it against existing indices (the Space Sustainability Rating, ECOB, CSI and the "50 most concerning" list), and set out what calibration and validation it still needs. Method v0.2 calibrates two of the tables from open data (WP-04). The rest are still placeholders, and every output is labelled as illustrative.
+Kadri & Shishkina (2026) propose two quantitative constructs. One is a mission-level **Space Debris Exposure Rating (SDER)** built as a weighted sum of a few normalised factors. The other is an object-level risk proxy $R_i = M_i \times L_i \times Pc_i$, whose change $\Delta R$ is meant to size outcome-based credits. This paper documents an open, tested reference implementation of both. Its central design choice is to report evidence quality and missing data in the output. Each input carries an evidence class. Weaker evidence widens the uncertainty interval. A missing input is scored at its worst case, and a result with too much missing weight is withheld. Credits are counted from the conservative bound of $\Delta R$. We describe the method, state which parts of the paper's Table 2 it covers, position it against existing indices (the Space Sustainability Rating, ECOB, CSI and the "50 most concerning" list), and set out what calibration and validation it still needs. Method v0.2 calibrates two of the tables from open data (WP-04). The rest are still placeholders, and every output is labelled as illustrative.
 
 ## 1 Two constructs, two scales
 
@@ -32,7 +32,7 @@ They share a data layer (altitude, mass, disposal and conjunction information) b
 
 The engine ([`engine.py`](../../src/sder/engine.py)) computes seven component risks on a 0–100 scale, with higher meaning more exposure. It then combines them with the weights in the method file.
 
-| Component | Weight | Inputs | Placeholder formula | Paper Table 2 input |
+| Component | Weight | Inputs | Formula | Paper Table 2 input |
 |---|---|---|---|---|
 | Disposal | 0.25 | plan, reliability | residual risk by plan, weighted by reliability; a failed disposal counts as 100 | Predicted time to disposal |
 | Orbital persistence | 0.20 | mean altitude | log-scaled natural-decay lifetime from an altitude table (v0.2: drag-decay model, WP-04 §6) | Altitude; orbital regime |
@@ -42,13 +42,13 @@ The engine ([`engine.py`](../../src/sder/engine.py)) computes seven component ri
 | Passivation | 0.075 | level | full 0 / partial 50 / none 100 | Passivation status |
 | Maneuverability | 0.075 | capability | propulsive 0 / drag device 40 / none 100 | Maneuverability and tracking transparency |
 
-Four inputs in Table 2 are **not yet implemented**: inclination, area-to-mass ratio, mission duration and design-for-demise. A fifth, compliance history, is deliberately left out. Section 5 explains the second choice.
+Four inputs in Table 2 are not yet implemented: inclination, area-to-mass ratio, mission duration and design-for-demise. A fifth, compliance history, is deliberately left out. Section 5 explains the second choice.
 
 ### 2.2 Evidence classes and uncertainty
 
 Each input is an `Evidenced[T]` value made of a value, an evidence class and a source reference. From strongest to weakest, the classes are `verified`, `independently_observed`, `modeled` and `operator_statement`. A component takes the evidence class of its *weakest* input. That class sets the half-width of the component's interval: ±5, ±10, ±20 or ±30 points respectively. The total interval is the weighted sum of the component intervals. The output reports the band (low below 34, medium below 67, high otherwise) and states whether it is *certain*, meaning the whole interval falls inside one band.
 
-These widths encode a policy choice, not an empirical error model. Their purpose is to make "we only have the operator's word" visible in the result. Replacing them with error distributions estimated per data source is a calibration task (§6).
+These widths are a policy choice, with no empirical error model behind them. They make "we only have the operator's word" visible in the result. Replacing them with error distributions estimated per data source is a calibration task (§6).
 
 ### 2.3 Missing data
 
@@ -66,7 +66,7 @@ Weights and tables live in a YAML method file, not in code. Every assessment rec
 | [Derelict upper stage](../../examples/leo-derelict-upper-stage.yaml), 850 km, 1,400 kg, no disposal, no passivation | 84.0 [77.1–87.8] | high (certain) | indicative |
 | [Sparse operator claims](../../examples/sparse-operator-claims.yaml) | — | — | withheld |
 
-The first row shows the intended behaviour. The smallsat's point score is low, but because its disposal plan rests only on the operator's word, its interval crosses into the medium band, and the output says so.
+The smallsat's point score is low. Its disposal plan rests only on the operator's word, so its interval crosses into the medium band, and the output says so.
 
 ## 3 ΔR reference implementation
 
@@ -77,14 +77,14 @@ The first row shows the intended behaviour. The smallsat's point score is low, b
 - **Issuance.** The number of units is $\lfloor \max(0, \Delta R^{\text{low}}) / \Delta R_0 \rfloor$. Uncertainty can therefore only reduce what is issued, never increase it.
 - **No double counting inside an action.** An action may list an object only once.
 
-Property tests check four things. Removal never increases risk, at any bound. $\Delta R$ is additive across objects. Units never exceed the conservative bound. And under the proxy, removing the $k$ objects with the highest $R$ gives at least the $\Delta R$ of any other $k$-subset, which is the formal content of the paper's Figure 3 claim. With the illustrative inputs in [`examples/actions/`](../../examples/actions/), removing one ~8.9 t upper stage gives $\Delta R \approx 89$ (conservative bound 24). An early deorbit of a 150 kg smallsat gives $\Delta R \approx 0.18$ (conservative bound 0.024). The difference is about 500×, which illustrates the targeting argument of Liou et al. (2010) and Kadri & Shishkina (2026, §3).
+Property tests check four things. Removal never increases risk, at any bound. $\Delta R$ is additive across objects. Units never exceed the conservative bound. And under the proxy, removing the $k$ objects with the highest $R$ gives at least the $\Delta R$ of any other $k$-subset, which is the formal content of the paper's Figure 3 claim. With the illustrative inputs in [`examples/actions/`](../../examples/actions/), removing one ~8.9 t upper stage gives $\Delta R \approx 89$ (conservative bound 24). An early deorbit of a 150 kg smallsat gives $\Delta R \approx 0.18$ (conservative bound 0.024). The difference is about 500×, in line with the targeting argument of Liou et al. (2010) and Kadri & Shishkina (2026, §3). These inputs are illustrative. [WP-04](../wp-04-catalogue/README.md) computes the terms for real objects: a 9-tonne Zenit-2 stage near 840 km has $Pc \approx 0.015$ over 25 years.
 
 ## 4 Related work
 
 | Index | Unit | What it measures | Relation to SDER and ΔR |
 |---|---|---|---|
 | **Space Sustainability Rating** (SSR) [ssr2021] | Mission and operator | A composite of six modules: mission index; collision avoidance; data sharing; detectability, identification and tracking; standards compliance; on-orbit servicing. Awarded in tiers. Operated by an independent Swiss association since its launch in 2022. | The closest existing analogue to SDER. SDER differs in two ways. Its evidence class and missing-data rules are part of the output, and its method file and code are open source. A comparison on the same missions is a priority (§6). |
-| **ECOB** (Letizia et al. 2016) [letizia2016] | Object | How much a breakup would increase the collision probability of operational satellites, from an analytical model of fragment density. | A physically grounded candidate to replace the consequence and environment placeholders, and an alternative to $M \times Pc$ for ranking objects. |
+| **ECOB** (Letizia et al. 2016) [letizia2016] | Object | How much a breakup would increase the collision probability of operational satellites, from an analytical model of fragment density. | A physically grounded candidate to replace the log-mass consequence term and the density-based environment table, and an alternative to $M \times Pc$ for ranking objects. |
 | **Criticality of Spacecraft Index** (Rossi et al. 2015) [rossi2015csi] | Object | An analytic ranking of abandoned LEO objects by their physical characteristics, orbit and environment. | A cross-check for $R_i$ rankings. |
 | **"50 statistically-most-concerning" objects** (McKnight et al. 2021) [mcknight2021] | Object | A consensus ranking of derelicts by statistical collision risk, built from several methods. | An external benchmark: a calibrated $R_i$ should place most of these objects in its top set. |
 | **Mass × Pc target selection** (Liou et al. 2010) [liou2010] | Object | LEGEND simulations showing that ADR targets selected by mass times collision probability stabilise the LEO population at about five removals per year. | The empirical basis for the form $R = M \times L \times Pc$. |
@@ -109,7 +109,7 @@ Version 0.1 of this paper listed six items. [WP-04](../wp-04-catalogue/README.md
 
 ## 7 Limitations
 
-Weights, evidence widths and most tables are uncalibrated; v0.2 calibrates persistence and environment only. The method does not model debris smaller than 10 cm, in line with the paper's §11. Conjunction is represented by a single screening proxy. Outputs are **illustrative research scores**. They are not ratings and must not be presented as "SDER rated" (see [TRADEMARKS.md](../../TRADEMARKS.md)).
+Weights, evidence widths and most tables are uncalibrated; v0.2 calibrates persistence and environment only. The method does not model debris smaller than 10 cm, in line with the paper's §11. Conjunction is represented by a single screening proxy. Outputs are illustrative research scores, and must not be presented as "SDER rated" (see [TRADEMARKS.md](../../TRADEMARKS.md)).
 
 ## References
 

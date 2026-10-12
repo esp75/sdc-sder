@@ -6,18 +6,19 @@
 
 ## Decision in one page
 
-**Issue.** Space activity creates benefits and leaves obligations beyond the active mission. Fragmented evidence and uneven methods make it difficult for public authorities, insurers, researchers and purchasers to compare how missions manage debris exposure.
+**Issue.** A satellite or rocket stage can stay in orbit for decades or centuries after its mission ends. Evidence about how missions handle this is scattered, and assessment methods differ, so public authorities, insurers, researchers and purchasers cannot easily compare missions.
 
-**Proposal.** Develop two linked, independently governed instruments. The **Space Debris Exposure Rating (SDER)** would describe mission exposure and lifecycle responsibility under a transparent, tested method. A **Space Debris Credit (SDC)** could, if justified by research and governance, record independently verified cleanup or risk reduction. The first public release is a vision and v0.1 principles, not a functioning rating or market.
+**Proposal.** Develop two linked, independently governed instruments. The **Space Debris Exposure Rating (SDER)** would describe mission exposure and lifecycle responsibility under a transparent, tested method. A **Space Debris Credit (SDC)** could, if justified by research and governance, record independently verified cleanup or risk reduction. No rating or market operates. What exists today is a set of principles, a Rulebook consultation draft, four working papers and open reference code.
 
-**Why engage now.** Method design is the stage at which agencies and experts can challenge system boundaries, evidence quality, uncertainty, confidentiality, appeals and policy fit before any score or unit gains authority. Open commercial reuse of the text supports competing implementations; official assessments and marks would require separate independent rules.
+**Why engage now.** Agencies and experts can still change the method before any score or unit carries weight: its boundaries, evidence rules, uncertainty, confidentiality, appeals and policy fit. The texts allow commercial reuse, so others can build competing implementations. Official assessments and marks would need separate, independent rules.
 
 ## Work proposed for an independent expert process
 
 | Question | Expected output for a later method | Current status |
 |---|---|---|
 | Exposure and lifecycle boundary | Public definitions, indicators and limits of comparison | Open research |
-| Evidence quality | Classes of evidence, missing-data handling and uncertainty disclosure | Principles in v0.1 |
+| Evidence quality | Classes of evidence, missing-data handling and uncertainty disclosure | Principles in v0.1; enforced in the reference code |
+| Object-level risk | Ranking of objects by R = M × L × Pc from open data | First results in [WP-04](../papers/wp-04-catalogue/README.md), open for peer review |
 | Review and remedy | Independent review, conflicts, corrections and appeals | Governance design proposed |
 | Incentives | Comparison of credits with deposits, bonds, fees, procurement and producer responsibility | Initial comparison in the Strauss Center paper, §12 |
 | Claim integrity | Baseline, verification, uniqueness, reversal and registry requirements | Principles in v0.1; no issuance |
@@ -26,6 +27,6 @@
 
 ## Specific invitation
 
-Institutions are invited to (1) comment on the [v0.1 principles](vision-and-principles-v0.1.md) with named evidence and objections, (2) nominate independent reviewers with conflict disclosures, and (3) discuss a bounded feasibility exercise on data availability and governance. The [response template](consultation-template.md) gives a consistent format. Participation does not imply endorsement or commitment to use SDER or SDC. Publish a response log showing which proposals were adopted, rejected or deferred and why.
+Institutions are invited to (1) comment on the [v0.1 principles](vision-and-principles-v0.1.md) with named evidence and objections, (2) nominate independent reviewers with conflict disclosures, and (3) discuss a bounded feasibility exercise on data availability and governance. The [response template](consultation-template.md) gives a consistent format. Participation does not imply endorsement or a commitment to use SDER or SDC. The Institute publishes a response log showing which proposals it adopted, rejected or deferred, and why.
 
 **Suggested citation after release:** Kadri, Maxime, and SDC Institute contributors, *SDC and SDER: Vision and Principles*, v0.1 (2026), https://spacedebriscredit.org. See the [origin record](../ORIGIN.md).

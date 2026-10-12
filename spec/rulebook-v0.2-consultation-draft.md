@@ -2,7 +2,7 @@
 
 **Status:** consultation draft. It is not in force and no one has adopted it. No SDER rating or SDC has been issued under it.
 **Version:** v0.2 · 12 October 2026 · SDC Institute (in formation)
-**Builds on:** [Vision and Principles v0.1](vision-and-principles-v0.1.md); Kadri & Shishkina (2026), [*Space Debris Credits*](../papers/2026-strauss-sdc-framework/README.md); working papers [WP-01](../papers/wp-01-legal-pathways/README.md), [WP-02](../papers/wp-02-sder-methodology/README.md) and [WP-03](../papers/wp-03-claim-integrity/README.md).
+**Builds on:** [Vision and Principles v0.1](vision-and-principles-v0.1.md); Kadri & Shishkina (2026), [*Space Debris Credits*](../papers/2026-strauss-sdc-framework/README.md); working papers [WP-01](../papers/wp-01-legal-pathways/README.md), [WP-02](../papers/wp-02-sder-methodology/README.md), [WP-03](../papers/wp-03-claim-integrity/README.md) and [WP-04](../papers/wp-04-catalogue/README.md).
 **License:** © 2026 Maxime Kadri. [CC BY-SA 4.0](../LICENSES/CC-BY-SA-4.0.txt). Using this text does not imply endorsement or certification. See [TRADEMARKS.md](../TRADEMARKS.md).
 
 ## How to read this draft
@@ -15,7 +15,7 @@ Each rule is presented in three parts:
 
 Rules marked ⚙︎ are implemented in the reference code. The code's tests act as executable checks of the rule.
 
-This draft replaces earlier internal drafts written in 2025, which were never published (see [ORIGIN.md](../ORIGIN.md)). Those drafts assumed a blockchain token, a marketplace with fees, oracle staking and a decentralised governance body. **This draft assumes none of these.** Whether credits may be traded at all is an open policy question (Part F).
+This draft replaces earlier internal drafts written in 2025, which were never published (see [ORIGIN.md](../ORIGIN.md)). Those drafts assumed a blockchain token, a marketplace with fees, oracle staking and a decentralised governance body. This draft assumes none of them. Whether credits may be traded at all is an open policy question (Part F).
 
 ---
 
@@ -76,7 +76,7 @@ This draft replaces earlier internal drafts written in 2025, which were never pu
 **B4 Missing data.** ⚙︎
 - *Rule.* A missing input is never replaced by a favourable value. It is scored at its worst case and named in the output. The result is *indicative* when nothing is missing and *provisional* when the missing weight is at or below a published threshold. Above that threshold the result is *withheld*.
 - *Why.* SDER 4.
-- *Open.* The threshold. It is 0.30 in research method v0.1.
+- *Open.* The threshold. It is 0.30 in research methods v0.1 and v0.2.
 
 **B5 Uncertainty and bands.** ⚙︎
 - *Rule.* Every result gives a point estimate and an interval. A band (low, medium or high) is reported together with whether the interval lies entirely inside it.
@@ -95,7 +95,7 @@ This draft replaces earlier internal drafts written in 2025, which were never pu
 ## Part C: Space Debris Credit (SDC)
 
 **C1 Unit.**
-- *Rule.* One SDC unit represents a verified reduction of $\Delta R_0$ in the risk proxy over a stated horizon, relative to a stated baseline. The number of units for an action is calculated from the **conservative bound** of ΔR, meaning the lowest reduction consistent with the evidence, rounded down. ⚙︎
+- *Rule.* One SDC unit represents a verified reduction of $\Delta R_0$ in the risk proxy over a stated horizon, relative to a stated baseline. The number of units for an action is calculated from the conservative bound of ΔR, meaning the lowest reduction consistent with the evidence, rounded down. ⚙︎
 - *Why.* SDC 1; paper §6. Uncertainty may only reduce what is issued.
 - *Open.* How $\Delta R_0$ is set: fixed by the review group, or a percentile of observed ΔR over a calibration period (paper §6). Also, the horizon $H$ for each regime.
 
@@ -256,7 +256,7 @@ If verification turns out to be affordable and operators change their behaviour,
 
 | Rule | Code | Test |
 |---|---|---|
-| B3–B6 | [`src/sder/engine.py`](../src/sder/engine.py), [`research-v0.1.yaml`](../src/sder/methodology/research-v0.1.yaml) | [`tests/test_sder_engine.py`](../tests/test_sder_engine.py) |
+| B3–B6 | [`src/sder/engine.py`](../src/sder/engine.py), [`research-v0.2.yaml`](../src/sder/methodology/research-v0.2.yaml) | [`tests/test_sder_engine.py`](../tests/test_sder_engine.py) |
 | C1 | [`src/sdc/risk.py`](../src/sdc/risk.py) (`issuable_units`) | [`tests/test_sdc_risk.py`](../tests/test_sdc_risk.py) |
 | C2, C7 | [`src/sdc/models.py`](../src/sdc/models.py) (`OutcomeType`, `TRANSITIONS`) | [`tests/test_sdc_registry.py`](../tests/test_sdc_registry.py) |
 | C8–C10, D1, E1–E2 | [`src/sdc/registry.py`](../src/sdc/registry.py) | [`tests/test_sdc_registry.py`](../tests/test_sdc_registry.py) |

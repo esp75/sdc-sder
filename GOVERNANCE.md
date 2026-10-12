@@ -1,6 +1,6 @@
 # Governance (v0)
 
-This file sets out how the programme makes decisions until the SDC Institute has a legal entity and an independent review group. These rules are deliberately small. They implement principles 6 and 7 of [Vision and Principles v0.1](spec/vision-and-principles-v0.1.md).
+This file sets out how the programme makes decisions until the SDC Institute has a legal entity and an independent review group. They implement principles 6 and 7 of [Vision and Principles v0.1](spec/vision-and-principles-v0.1.md).
 
 ## How a method or rule changes
 

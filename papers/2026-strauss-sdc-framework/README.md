@@ -18,15 +18,16 @@ Maxime Kadri and Anna Shishkina · Strauss Center Space Traffic Conference 2026,
 
 | Paper | Implementation or extension |
 |---|---|
-| §5, Table 2 (SDER inputs) | [`src/sder`](../../src/sder/): engine that accounts for evidence quality, with a [methodology file](../../src/sder/methodology/research-v0.1.yaml); [WP-02](../wp-02-sder-methodology/README.md) |
+| §5, Table 2 (SDER inputs) | [`src/sder`](../../src/sder/): engine that accounts for evidence quality, with versioned [method files](../../src/sder/methodology/); [WP-02](../wp-02-sder-methodology/README.md), [WP-04](../wp-04-catalogue/README.md) |
 | §6 (R = M × L × Pc, ΔR) | [`src/sdc/risk.py`](../../src/sdc/risk.py), `sdc delta-r`; [WP-02](../wp-02-sder-methodology/README.md) |
+| Figures 2–3 on real objects | [`src/sdc/catalogue.py`](../../src/sdc/catalogue.py), `sdc catalogue`; [WP-04](../wp-04-catalogue/README.md) |
 | §4, §7 (lifecycle, verification, double counting) | [`src/sdc/registry.py`](../../src/sdc/registry.py); [WP-03](../wp-03-claim-integrity/README.md) |
 | §9 (legal pathways) | [WP-01](../wp-01-legal-pathways/README.md) |
 | §7, §14–16 (rulebook, pilot, governance) | [Rulebook consultation draft v0.2](../../spec/rulebook-v0.2-consultation-draft.md) |
 
 ## Known limitations, as stated in the paper
 
-- Figures 2–3 use synthetic illustrative values. Producing the same figures from catalogue data is the first item on the [research roadmap](../ROADMAP.md).
+- Figures 2–3 use synthetic illustrative values. [WP-04](../wp-04-catalogue/README.md) reproduces both from catalogue data, and both claims hold.
 - The mass estimate *M*, the probability of collision *Pc* and the persistence *L* are proxies that carry uncertainty from the data sources and from solar activity.
 - The framework does not address debris smaller than 10 cm directly.
 

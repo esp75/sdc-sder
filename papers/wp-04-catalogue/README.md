@@ -55,7 +55,7 @@ GCAT records the orbit at a fixed epoch and the reentry date for objects that ha
 | Point value within a factor of 2 | 42.3 % |
 | Point value within a factor of 3 | 61.6 % |
 
-The range is wide enough to hold the truth in almost every case. The point value is unbiased but imprecise, mostly because a single moderate density cannot follow the solar cycle. For $R$ this matters little at the top of the ranking. Of the intact objects with perigee above 650 km, 82 % outlive the 25-year horizon even in the shortest-life scenario, so $L = 1$ throughout their range.
+The range is wide enough to hold the truth in almost every case. The point value is unbiased but imprecise, mostly because a single moderate density cannot follow the solar cycle. The imprecision barely moves the top of the ranking. Of the intact objects with perigee above 650 km, 82 % outlive the 25-year horizon even in the shortest-life scenario, so $L = 1$ throughout their range.
 
 ## 4 Figure 2 on real data: concentration
 

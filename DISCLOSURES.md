@@ -1,6 +1,6 @@
 # Disclosures
 
-Research from this programme is only as credible as its disclosures. This file lists every interest that a reader could reasonably consider relevant. It is updated when those interests change, and each paper repeats the parts of it that apply to that paper.
+This file lists every interest that a reader could reasonably consider relevant. It is updated when those interests change, and each paper repeats the parts of it that apply to that paper.
 
 ## Competing interests
 
@@ -15,7 +15,7 @@ This work has received **no external funding**. No sponsor, operator, insurer or
 
 ## Use of AI tools
 
-AI assistants were used to edit text, convert formats, write and test code, and search the literature. The authors checked every factual claim against the sources cited and are responsible for all content.
+AI assistants helped edit text, convert formats, write and test code, and search the literature. Every factual claim was checked against the source it cites. The authors are responsible for all content.
 
 ## Status
 

@@ -1,6 +1,6 @@
 # SDC and SDER
 
-**Space Debris Credit (SDC)** and **Space Debris Exposure Rating (SDER)** form an open research programme on two questions. How can a space mission's debris exposure be shown honestly, including what is not known? And how can a verified reduction in long-lived debris risk be recognised without double counting or paying for what would have happened anyway?
+**Space Debris Credit (SDC)** and **Space Debris Exposure Rating (SDER)** form an open research programme on two questions. How can a space mission's debris exposure be shown together with what is not known about it? And how can a verified reduction in long-lived debris risk be recognised without double counting or paying for what would have happened anyway?
 
 [![ci](https://github.com/spacedebriscredit/sdc-sder/actions/workflows/ci.yml/badge.svg)](https://github.com/spacedebriscredit/sdc-sder/actions/workflows/ci.yml)
 [![code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue)](LICENSES/Apache-2.0.txt)
