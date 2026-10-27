@@ -34,6 +34,8 @@ Start at the [documentation index](docs/index.md).
 
 ![Architecture: evidence feeds the SDER score and the SDC risk model, which feed a verified, hash-chained registry](docs/assets/architecture.svg)
 
+> **Watch on the web:** the explainer video is embedded at [maximekadri.org/research/space-debris-credits](https://www.maximekadri.org/research/space-debris-credits), and the [interactive lab](https://www.maximekadri.org/research/space-debris-credits/lab) runs the same model in the browser.
+
 ## Publications
 
 | | |
