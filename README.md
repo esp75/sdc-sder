@@ -1,15 +1,38 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="brand/primary_dark.svg">
+    <img src="brand/primary_v1.svg" alt="SDC and SDER" width="720">
+  </picture>
+</p>
+
 # SDC and SDER
 
 **Space Debris Credit (SDC)** and **Space Debris Exposure Rating (SDER)** form an open research programme on two questions. How can a space mission's debris exposure be shown together with what is not known about it? And how can a verified reduction in long-lived debris risk be recognised without double counting or paying for what would have happened anyway?
 
-[![ci](https://github.com/spacedebriscredit/sdc-sder/actions/workflows/ci.yml/badge.svg)](https://github.com/spacedebriscredit/sdc-sder/actions/workflows/ci.yml)
+[![ci](https://github.com/esp75/sdc-sder/actions/workflows/ci.yml/badge.svg)](https://github.com/esp75/sdc-sder/actions/workflows/ci.yml)
 [![code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue)](LICENSES/Apache-2.0.txt)
 [![texts: CC BY / BY-SA 4.0](https://img.shields.io/badge/texts-CC%20BY%20%2F%20BY--SA%204.0-lightgrey)](LICENSING.md)
 [![REUSE](https://img.shields.io/badge/REUSE-compliant-green)](REUSE.toml)
+![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue)
 
 > **Status: v0.2, open for consultation and for outside peer review.** No official SDER rating, issued SDC, certification or market exists. The code produces *illustrative research outputs*. Method v0.2 calibrates two of its tables from open data; the other parameters are still placeholders.
 
-A research programme of the **SDC Institute** (in formation) · originated by **Maxime Kadri** · [spacedebriscredit.org](https://spacedebriscredit.org) · [Disclosures](DISCLOSURES.md) · [Origin](ORIGIN.md)
+A research programme of the **SDC Institute** (in formation) · originated by **Maxime Kadri** · [Disclosures](DISCLOSURES.md)
+
+## Documentation
+
+The documentation follows the [Diátaxis](https://diataxis.fr/) framework. Pick the quadrant that matches what you need.
+
+| | |
+|---|---|
+| **[Tutorials](docs/tutorials/01-score-a-mission.md)** | Learn by doing: score a mission, then rank real debris by risk |
+| **[How-to guides](docs/how-to/read-a-score.md)** | Solve one task: read an uncertainty, compare removals, verify a registry, refresh the data |
+| **[Reference](docs/reference/cli.md)** | Look up exact commands, the scoring model and its fields |
+| **[Explanation](docs/explanation/how-sder-works.md)** | Understand the design: why SDER works this way, and how claims stay honest |
+
+Start at the [documentation index](docs/index.md).
+
+![Architecture: evidence feeds the SDER score and the SDC risk model, which feed a verified, hash-chained registry](docs/assets/architecture.svg)
 
 ## Publications
 
@@ -59,7 +82,7 @@ Each principle is enforced in code:
 Requires [uv](https://docs.astral.sh/uv/) and Python 3.12+.
 
 ```console
-$ git clone https://github.com/spacedebriscredit/sdc-sder && cd sdc-sder
+$ git clone https://github.com/esp75/sdc-sder && cd sdc-sder
 $ uv sync
 $ uv run sdc catalogue rank --top 3
 Illustrative research estimate - not an issued SDC
@@ -135,4 +158,4 @@ To cite the framework, cite the paper:
 
 To cite the code and the programme, use [CITATION.cff](CITATION.cff):
 
-> Kadri, M. *SDC and SDER: research programme and reference implementation*, v0.2.0 (2026). https://github.com/spacedebriscredit/sdc-sder
+> Kadri, M. *SDC and SDER: research programme and reference implementation*, v0.2.0 (2026). https://github.com/esp75/sdc-sder

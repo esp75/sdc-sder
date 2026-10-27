@@ -29,4 +29,4 @@
 
 Institutions are invited to (1) comment on the [v0.1 principles](vision-and-principles-v0.1.md) with named evidence and objections, (2) nominate independent reviewers with conflict disclosures, and (3) discuss a bounded feasibility exercise on data availability and governance. The [response template](consultation-template.md) gives a consistent format. Participation does not imply endorsement or a commitment to use SDER or SDC. The Institute publishes a response log showing which proposals it adopted, rejected or deferred, and why.
 
-**Suggested citation after release:** Kadri, Maxime, and SDC Institute contributors, *SDC and SDER: Vision and Principles*, v0.1 (2026), https://spacedebriscredit.org. See the [origin record](../ORIGIN.md).
+**Suggested citation after release:** Kadri, Maxime, and SDC Institute contributors, *SDC and SDER: Vision and Principles*, v0.1 (2026), https://github.com/esp75/sdc-sder.

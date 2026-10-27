@@ -19,8 +19,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://spacedebriscredit.org"
-Repository = "https://github.com/spacedebriscredit/sdc-sder"
+Homepage = "https://github.com/esp75/sdc-sder"
+Repository = "https://github.com/esp75/sdc-sder"
 
 [project.scripts]
 sder = "sder.cli:main"

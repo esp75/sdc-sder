@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-labelledby="t d">
+  <title id="t">How SDER and SDC fit together</title>
+  <desc id="d">Open data and operator filings feed two engines, SDER for exposure scores with intervals and SDC for risk reduction and claims. Claims pass through independent verification into a hash-chained registry, which anyone can check.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8FA3BF"/>
+    </marker>
+    <style>
+      .box { fill: #13233D; stroke: #2B4468; stroke-width: 1.5; }
+      .hd  { font: 600 15px 'Space Grotesk', system-ui, sans-serif; fill: #FFFFFF; }
+      .bd  { font: 400 12.5px 'Space Grotesk', system-ui, sans-serif; fill: #B8C6DB; }
+      .lbl { font: 600 11px 'Space Grotesk', system-ui, sans-serif; fill: #8FA3BF; letter-spacing: .08em; text-transform: uppercase; }
+      .edge { stroke: #8FA3BF; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    </style>
+  </defs>
+
+  <rect width="960" height="400" rx="14" fill="#0A1628"/>
+
+  <!-- column labels -->
+  <text class="lbl" x="60" y="48">Evidence</text>
+  <text class="lbl" x="350" y="48">Engines</text>
+  <text class="lbl" x="650" y="48">Claims</text>
+
+  <!-- Evidence -->
+  <rect class="box" x="40" y="70" width="220" height="92" rx="10"/>
+  <text class="hd" x="60" y="104">Open catalogues</text>
+  <text class="bd" x="60" y="128">GCAT: mass, orbit, decay</text>
+  <text class="bd" x="60" y="146">Public TLEs and observations</text>
+
+  <rect class="box" x="40" y="200" width="220" height="92" rx="10"/>
+  <text class="hd" x="60" y="234">Operator inputs</text>
+  <text class="bd" x="60" y="258">Filings, manoeuvre plans</text>
+  <text class="bd" x="60" y="276">Labelled by evidence class</text>
+
+  <!-- Engines -->
+  <rect class="box" x="330" y="70" width="260" height="92" rx="10"/>
+  <text class="hd" x="350" y="104">SDER score</text>
+  <text class="bd" x="350" y="128">Weighted components</text>
+  <text class="bd" x="350" y="146">Interval and band</text>
+
+  <rect class="box" x="330" y="200" width="260" height="92" rx="10"/>
+  <text class="hd" x="350" y="234">SDC risk model</text>
+  <text class="bd" x="350" y="258">R = M × L × Pc, ΔR per action</text>
+  <text class="bd" x="350" y="276">Units from the lower bound</text>
+
+  <!-- Claims -->
+  <rect class="box" x="640" y="70" width="280" height="92" rx="10"/>
+  <text class="hd" x="660" y="104">Independent verification</text>
+  <text class="bd" x="660" y="128">Verifier is not the claimant</text>
+  <text class="bd" x="660" y="146">One live claim per outcome</text>
+
+  <rect x="640" y="200" width="280" height="92" rx="10" fill="#0E2A2A" stroke="#00D9A3" stroke-width="1.5"/>
+  <text class="hd" x="660" y="234">Hash-chained registry</text>
+  <text class="bd" x="660" y="258">Append-only, replayable</text>
+  <text class="bd" x="660" y="276">Chain head verifies the log</text>
+
+  <!-- edges -->
+  <path class="edge" d="M262 116 L326 116"/>
+  <path class="edge" d="M262 246 L326 246"/>
+  <path class="edge" d="M262 166 Q296 200 326 224" />
+  <path class="edge" d="M592 116 L636 116"/>
+  <path class="edge" d="M592 246 L636 246"/>
+  <path class="edge" d="M780 166 L780 196"/>
+
+  <text class="bd" x="40" y="340">Illustrative research output. Not an official SDER rating and not an issued SDC.</text>
+</svg>

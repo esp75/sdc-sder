@@ -28,4 +28,4 @@ Caption: “Evidence first. Independent rules before ratings or credits.”
 
 Read the [v0.1 principles](../../spec/vision-and-principles-v0.1.md), ask which evidence is missing, and suggest safeguards. Sharing the explainer does not endorse an operator, rating or credit. The SDC Institute's role is to develop an independent method, including corrections and appeals, before any official assessment.
 
-The [COMPASS Message Box](https://www.compassscicomm.org/leadership-development/the-message-box/) informed the audience-first structure of this explainer. Conceptual origin: **Maxime Kadri**; [provenance and credits](../../ORIGIN.md).
+The [COMPASS Message Box](https://www.compassscicomm.org/leadership-development/the-message-box/) informed the audience-first structure of this explainer. Conceptual origin: **Maxime Kadri**.

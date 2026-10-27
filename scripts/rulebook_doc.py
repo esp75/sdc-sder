@@ -15,7 +15,7 @@ from markdown_it import MarkdownIt
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "spec" / "rulebook-v0.2-consultation-draft.md"
-REPO_URL = "https://github.com/spacedebriscredit/sdc-sder/blob/main/"
+REPO_URL = "https://github.com/esp75/sdc-sder/blob/main/"
 
 PART_RE = re.compile(
     r"^## (Part ([A-J]): (.+)|Annex [A-Z]: .+|Consultation questions|How to read this draft)$"

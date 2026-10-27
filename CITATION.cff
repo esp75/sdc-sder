@@ -4,8 +4,8 @@ title: "SDC and SDER: Space Debris Credit and Space Debris Exposure Rating — r
 type: software
 version: 0.2.0
 date-released: 2026-10-12
-url: "https://spacedebriscredit.org"
-repository-code: "https://github.com/spacedebriscredit/sdc-sder"
+url: "https://github.com/esp75/sdc-sder"
+repository-code: "https://github.com/esp75/sdc-sder"
 license: [Apache-2.0, CC-BY-SA-4.0, CC-BY-4.0]
 authors:
   - family-names: Kadri

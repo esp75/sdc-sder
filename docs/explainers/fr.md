@@ -26,4 +26,4 @@ Légende : « D'abord les preuves. Des règles indépendantes avant toute note o
 
 ## Participer
 
-Lisez les [principes v0.1](../../spec/vision-and-principles-v0.1.md) et indiquez les preuves ou garanties qui manquent. Partager cette présentation ne signifie approuver ni un opérateur, ni une note, ni un crédit. Origine conceptuelle : **Maxime Kadri** ; [historique et attributions](../../ORIGIN.md).
+Lisez les [principes v0.1](../../spec/vision-and-principles-v0.1.md) et indiquez les preuves ou garanties qui manquent. Partager cette présentation ne signifie approuver ni un opérateur, ni une note, ni un crédit. Origine conceptuelle : **Maxime Kadri**.

@@ -2,7 +2,7 @@
 
 **Status:** proposed framework for public and expert consultation; not an adopted technical standard.  
 **Version date:** 27 September 2026  
-**Citation draft:** Kadri, Maxime, and SDC Institute contributors. *SDC and SDER: Vision and Principles*, v0.1 (2026). https://spacedebriscredit.org · https://github.com/spacedebriscredit/sdc-sder.  
+**Citation draft:** Kadri, Maxime, and SDC Institute contributors. *SDC and SDER: Vision and Principles*, v0.1 (2026). https://github.com/esp75/sdc-sder · https://github.com/esp75/sdc-sder.  
 **License:** © 2026 Maxime Kadri. Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSING.md](../LICENSING.md). No endorsement, official SDER rating or issued SDC is implied.
 
 ## Purpose
@@ -59,4 +59,4 @@ The Institute should publish method changes, conflicts, funding influences, revi
 
 This v0.1 text expresses a proposal for consultation. It specifies no scoring formula, data schema, issuance process, registry, conformity test or market. Any later operational method requires published research, validation, independent governance and a separate release decision.
 
-Conceptual origin is attributed to **Maxime Kadri** (competing interests: see [DISCLOSURES.md](../DISCLOSURES.md)); the proposed public-interest methodology is to be developed by the **SDC Institute** with credited contributors. See the [origin record](../ORIGIN.md). The verification and double-counting safeguards borrow from carbon-market integrity work, such as the [ICVCM Core Carbon Principles](https://icvcm.org/core-carbon-principles/). The units do not carry over, and no space-debris market exists.
+Conceptual origin is attributed to **Maxime Kadri** (competing interests: see [DISCLOSURES.md](../DISCLOSURES.md)); the proposed public-interest methodology is to be developed by the **SDC Institute** with credited contributors. The verification and double-counting safeguards borrow from carbon-market integrity work, such as the [ICVCM Core Carbon Principles](https://icvcm.org/core-carbon-principles/). The units do not carry over, and no space-debris market exists.

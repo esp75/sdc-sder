@@ -7,4 +7,4 @@ In short:
 - Argue with evidence, not with people.
 - Disclose any conflict of interest when you comment on methodology.
 
-To report unacceptable behaviour privately, use the contact route on https://spacedebriscredit.org.
+To report unacceptable behaviour privately, use the contact route on https://github.com/esp75/sdc-sder.

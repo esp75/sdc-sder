@@ -25,7 +25,7 @@ The 2025 French patent application on SDC and SDER has been **abandoned**. The i
 
 Please credit as follows:
 
-> SDC and SDER, originated by Maxime Kadri. SDC Institute research programme, https://spacedebriscredit.org
+> SDC and SDER, originated by Maxime Kadri. SDC Institute research programme, https://github.com/esp75/sdc-sder
 
 ## What the licenses do not cover
 

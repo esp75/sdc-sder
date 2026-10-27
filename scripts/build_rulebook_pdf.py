@@ -35,7 +35,7 @@ CSS = """
 @page { size: A4; margin: 20mm 19mm 22mm 19mm;
   @top-left { content: "SDC Institute  ·  Rulebook, consultation draft v0.2"; font: 500 7.5pt var(--font); color: #4A5568; }
   @top-right { content: "NOT IN FORCE"; font: 600 7pt var(--font); letter-spacing: .14em; color: #4A5568; }
-  @bottom-left { content: "CC BY-SA 4.0  ·  github.com/spacedebriscredit/sdc-sder"; font: 400 7.5pt var(--font); color: #4A5568; }
+  @bottom-left { content: "CC BY-SA 4.0  ·  github.com/esp75/sdc-sder"; font: 400 7.5pt var(--font); color: #4A5568; }
   @bottom-right { content: counter(page) " / " counter(pages); font: 600 8pt var(--font); color: #0A1628; }
 }
 @page :first { margin: 0; @top-left { content: none } @top-right { content: none } @bottom-left { content: none } @bottom-right { content: none } }
@@ -186,7 +186,7 @@ and funding fair access to space.</p>
   <div><b>Version</b>{VERSION}<br>SDC Institute (in formation)</div>
   <div><b>Licence</b>© 2026 Maxime Kadri · CC BY-SA 4.0<br>Use does not imply endorsement or certification</div>
   <div><b>Interactive version</b><a href="{WEB}">maximekadri.org/research/space-debris-credits/rulebook</a></div>
-  <div><b>Source and code</b><a href="https://github.com/spacedebriscredit/sdc-sder">github.com/spacedebriscredit/sdc-sder</a></div>
+  <div><b>Source and code</b><a href="https://github.com/esp75/sdc-sder">github.com/esp75/sdc-sder</a></div>
 </div></div>"""
     status = f'<div class="status plain">{render(header.replace(chr(10), "  " + chr(10)))}</div>'
     front = f"""<div class="front"><h2>Contents</h2>{status}{toc_html(body_sections, pages)}</div>
@@ -197,7 +197,7 @@ and funding fair access to space.</p>
 <p>Comments on any rule are welcome, especially on the questions above and on every point marked <b>Open</b>.
 Use the consultation template in the repository, or open a review issue. Every response is read, and the reasons for
 accepting or rejecting a substantive change are published (rule G1).</p>
-<div class="box"><p><b>Consultation template:</b> <a href="https://github.com/spacedebriscredit/sdc-sder/blob/main/spec/consultation-template.md">github.com/spacedebriscredit/sdc-sder/blob/main/spec/consultation-template.md</a></p>
+<div class="box"><p><b>Consultation template:</b> <a href="https://github.com/esp75/sdc-sder/blob/main/spec/consultation-template.md">github.com/esp75/sdc-sder/blob/main/spec/consultation-template.md</a></p>
 <p><b>Interactive version, with explanations of every term:</b> <a href="{WEB}">{WEB.removeprefix("https://")}</a></p>
 <p><b>Cite as:</b> Kadri, M. (2026). <i>SDC and SDER Rulebook: consultation draft v0.2.</i> SDC Institute (in formation). CC BY-SA 4.0.</p>
 <p style="margin-bottom:0"><b>Generated</b> {date.today().isoformat()} from <code style="background:none;color:#fff">spec/rulebook-v0.2-consultation-draft.md</code>.</p></div></section>"""

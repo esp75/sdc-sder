@@ -31,7 +31,7 @@ The draft has ten Parts:
 | I | Phased implementation, national integration and international pathways |
 | J | Outcome indicators and review |
 
-**Relationship to the 2025 drafts.** This draft replaces internal drafts written in 2025, which were never published (see [ORIGIN.md](../ORIGIN.md)). Their policy content is carried over here: the definitions, the legal framework, the rating, verification and audit, governance, the Equitable Space Access Fund, and phased adoption. Their technical premises are not: a blockchain token, non-fungible disposal certificates, oracles that stake collateral, smart-contract enforcement, a decentralised governance body, and market-size projections. Where a 2025 parameter is kept as a starting point for consultation (for example the ESAF funding shares), it is labelled as such under *Open*.
+**Relationship to the 2025 drafts.** This draft replaces internal drafts written in 2025, which were never published. Their policy content is carried over here: the definitions, the legal framework, the rating, verification and audit, governance, the Equitable Space Access Fund, and phased adoption. Their technical premises are not: a blockchain token, non-fungible disposal certificates, oracles that stake collateral, smart-contract enforcement, a decentralised governance body, and market-size projections. Where a 2025 parameter is kept as a starting point for consultation (for example the ESAF funding shares), it is labelled as such under *Open*.
 
 ---
 

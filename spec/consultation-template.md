@@ -1,6 +1,6 @@
 # v0.1 consultation response template
 
-**Status:** draft; submit as a GitHub issue or discussion at https://github.com/spacedebriscredit/sdc-sder, or through the contact route on https://spacedebriscredit.org.
+**Status:** draft; submit as a GitHub issue or discussion at https://github.com/esp75/sdc-sder, or through the contact route on https://github.com/esp75/sdc-sder.
 
 You may respond as an individual or organization. Taking part in the consultation does not mean you endorse the framework. Do not include confidential mission data unless a separate secure review route has been agreed.
 

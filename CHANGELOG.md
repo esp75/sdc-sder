@@ -26,4 +26,4 @@ First public release of the SDC Institute research programme.
   - `sder`: an illustrative exposure-scoring engine that accounts for evidence quality, driven by a versioned methodology file
   - `sdc.risk`: the paper's object-level risk proxy R = M × L × Pc and the expected risk reduction ΔR
   - `sdc.registry`: the claim lifecycle state machine, with a hash-chained append-only log and a guard against double counting
-- **Provenance:** the 2025 working documents are not published. Their SHA-256 fingerprints are in ORIGIN.md. The 2025 patent application has been abandoned.
+- **Provenance:** the 2025 working documents are not published. The 2025 patent application has been abandoned.
